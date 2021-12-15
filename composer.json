@@ -1,0 +1,80 @@
+{
+  "name" : "frdl/codebase",
+  "description": "Codebase API related packages...",	  
+  "license": ["MIT"],	 
+  "homepage": "https://startdir.de/install/php/",
+  "authors":[
+	  {
+	    "name" : "Till Wehowski",
+	    "email" : "software@frdl.de"
+	  }
+	  ],
+   
+"scripts": {
+    "pkg-pre-install-cmd": [
+         "-d memory_limit=-1 composer self-update --2"
+    ], 
+    "post-root-package-install": [
+        "php-legal-licenses generate --hide-version"
+    ],
+    "post-create-project-cmd": [
+        "php-legal-licenses generate --hide-version"
+    ],
+    "post-install-cmd": [
+        "php-legal-licenses generate --hide-version"
+    ],
+   "post-update-cmd": [
+        "php-legal-licenses generate --hide-version"
+    ]
+},
+"extra" : {
+	 "compile-mode": "all",
+	 "webfan" : {
+		 "install" : {
+			 
+	       
+		
+			        
+		 }
+	 }
+},
+	
+"minimum-stability":"dev",
+ "config": {
+ 
+        "cache-files-ttl": 900
+ },  
+	 "require-dev" : {		 
+
+	 },
+  "require" : {
+	    "php": ">=8.0",
+		"frdl/webfan" : "dev-master", 	  
+	    "composer/composer" :"*",			
+		"friendsofphp/proxy-manager-lts":"*",     
+	    "yosymfony/resource-watcher" : "*",			 
+	    "sensiolabs/ansi-to-html" : "*",
+        "teqneers/shamir" : "*",		
+	    "frdl/php-floodprotection": "*",
+		"frdl/remote-psr4" : "*",
+		"webfan3/php-easy-breaker" : "*",
+        "comcast/php-legal-licenses":"*",
+		"ninsuo/php-shared-memory":"*", 
+		"nette/utils":"*", 
+		"nette/caching" :"*", 
+		"nette/robot-loader":"*",	
+		"nette/reflection":"*",  
+		"nette/php-generator":"*",
+	    "spatie/temporary-directory": "*",
+		"nikic/php-parser" : "*"
+  },	  
+  "autoload": {
+    "classmap" : ["src/"],
+    "psr-4": {
+
+     }
+  },
+ "suggest" : {
+
+ }
+}

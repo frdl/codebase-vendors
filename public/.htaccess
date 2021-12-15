@@ -1,0 +1,5 @@
+ 
+RewriteEngine On
+ 
+FallbackResource /index.php
+ 
