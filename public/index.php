@@ -46,6 +46,7 @@ $someDirs=[
 ];
 
  $loader = new \Webfan\Autoload\CodebaseLoader;
+//   $loader = new \Webfan\Autoload\ClassMapGenerator;
  $loader->setTempDirectory(__DIR__ . \DIRECTORY_SEPARATOR. '..'.  \DIRECTORY_SEPARATOR.'cache'.  \DIRECTORY_SEPARATOR.'codebase-loader-caches');
  $loader->reportParseErrors(false);
  

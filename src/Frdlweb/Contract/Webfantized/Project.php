@@ -5,5 +5,7 @@ interface Project {
 		public function __construct(string $vendor, string $packagename);
 		public function withVendor(string $vendor);
 		public function withName(string $packagename);
-	}
+		public function gethVendor() : string;
+		public function gethName(): string;
+}
 	

@@ -11,7 +11,7 @@
 	  ],
    
 "scripts": {
-    "pkg-pre-install-cmd": [
+   "UNCOMMENT_IF_pre-install-cmd": [
          "-d memory_limit=-1 composer self-update --2"
     ], 
     "post-root-package-install": [
@@ -23,7 +23,7 @@
     "post-install-cmd": [
         "php-legal-licenses generate --hide-version"
     ],
-   "post-update-cmd": [
+    "post-update-cmd": [
         "php-legal-licenses generate --hide-version"
     ]
 },
@@ -31,42 +31,46 @@
 	 "compile-mode": "all",
 	 "webfan" : {
 		 "install" : {
-			 
-	       
-		
-			        
+		     
 		 }
-	 }
+	 }, 
+	"downloads": {
+      "vendor-patch/autoload-package": {
+        "url": "https://github.com/vendor-patch/autoload-package/archive/refs/heads/master.zip",
+        "path": "./modules/vendor-patch/autoload-package",
+        "ignore": [".*"]
+      }
+    }
 },
-	
 "minimum-stability":"dev",
- "config": {
+    "config": {
  
         "cache-files-ttl": 900
- },  
+    },  
 	 "require-dev" : {		 
 
 	 },
   "require" : {
-	    "php": ">=8.0",
-		"frdl/webfan" : "dev-master", 	  
-	    "composer/composer" :"*",			
-		"friendsofphp/proxy-manager-lts":"*",     
-	    "yosymfony/resource-watcher" : "*",			 
-	    "sensiolabs/ansi-to-html" : "*",
+	"php": ">=8.0",
+	"frdl/webfan" : "dev-master", 	  
+	"composer/composer" :"*",		
+	"vendor-patch/autoload-package" :"*",	
+	"friendsofphp/proxy-manager-lts":"*",     
+	"yosymfony/resource-watcher" : "*",			 
+	"sensiolabs/ansi-to-html" : "*",
         "teqneers/shamir" : "*",		
-	    "frdl/php-floodprotection": "*",
-		"frdl/remote-psr4" : "*",
-		"webfan3/php-easy-breaker" : "*",
+	"frdl/php-floodprotection": "*",
+	"frdl/remote-psr4" : "*",
+	"webfan3/php-easy-breaker" : "*",
         "comcast/php-legal-licenses":"*",
-		"ninsuo/php-shared-memory":"*", 
-		"nette/utils":"*", 
-		"nette/caching" :"*", 
-		"nette/robot-loader":"*",	
-		"nette/reflection":"*",  
-		"nette/php-generator":"*",
-	    "spatie/temporary-directory": "*",
-		"nikic/php-parser" : "*"
+	"ninsuo/php-shared-memory":"*", 
+	"nette/utils":"*", 
+	"nette/caching" :"*", 
+	"nette/robot-loader":"*",	
+	"nette/reflection":"*",  
+	"nette/php-generator":"*",
+	"spatie/temporary-directory": "*",
+	"nikic/php-parser" : "*"
   },	  
   "autoload": {
     "classmap" : ["src/"],
@@ -74,7 +78,7 @@
 
      }
   },
- "suggest" : {
+  "suggest" : {
 
- }
+  }
 }
