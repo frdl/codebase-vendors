@@ -1,9 +1,17 @@
 <?php
 use Nette\Utils\Helpers;
 use Melbahja\Http2\Pusher;
+
+//broken version quick patch
+if(isset($_GET['version']) && 'latest' !== $_GET['version']){
+	unset($_GET['version']);
+}
+
 /*
 die('PAUSE '.basename(__FILE__).__LINE__.$_SERVER['SERVER_ADDR']);
-
+if(isset($_GET['version']) && 'latest' !== $_GET['version']){
+	unset($_GET['version']);
+}
 @todo: bundle/printer...., 2oop functions
 */
 function multineedle_stripos($haystack, $needles, $offset=0) {
