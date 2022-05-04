@@ -52,7 +52,7 @@
 	 },
   "require" : {
 	"php": ">=8.0",
-	"frdl/webfan" : "dev-master", 	  
+	"frdl/webfan" : "*", 	  
 	"composer/composer" :"*",		
 	"vendor-patch/autoload-package" :"*",	
 	"friendsofphp/proxy-manager-lts":"*",     
