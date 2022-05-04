@@ -61,6 +61,7 @@
         "teqneers/shamir" : "*",		
 	"frdl/php-floodprotection": "*",
 	"frdl/remote-psr4" : "*",
+	"frdl/event-module" : "*",
 	"webfan3/php-easy-breaker" : "*",
         "comcast/php-legal-licenses":"*",
 	"ninsuo/php-shared-memory":"*", 
