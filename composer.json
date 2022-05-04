@@ -73,7 +73,8 @@
 	"spatie/temporary-directory": "*",
 	"nikic/php-parser" : "*",
 	"hellogerard/jobby" : "*",
-	"php-di/php-di" : "*"
+	"php-di/php-di" : "*",
+	"caseyamcl/configula" : "*"
   },	  
   "autoload": {
     "classmap" : ["src/"],
