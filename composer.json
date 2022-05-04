@@ -2,7 +2,7 @@
   "name" : "frdl/codebase",
   "description": "Codebase API related packages...",	  
   "license": ["MIT"],	 
-  "homepage": "https://startdir.de/install/php/",
+  "homepage": "https://webfan.de/install/",
   "authors":[
 	  {
 	    "name" : "Till Wehowski",
