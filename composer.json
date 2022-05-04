@@ -34,12 +34,12 @@
 		     
 		 }
 	 }, 
-	"downloads": {
-      "vendor-patch/autoload-package": {
-        "url": "https://github.com/vendor-patch/autoload-package/archive/refs/heads/master.zip",
-        "path": "./modules/vendor-patch/autoload-package",
-        "ignore": [".*"]
-      }
+        "downloads": {
+          "vendor-patch/autoload-package": {
+            "url": "https://github.com/vendor-patch/autoload-package/archive/refs/heads/master.zip",
+            "path": "./modules/vendor-patch/autoload-package",
+            "ignore": [".*"]
+        }
     }
 },
 "minimum-stability":"dev",
