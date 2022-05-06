@@ -39,6 +39,11 @@
             "url": "https://github.com/vendor-patch/autoload-package/archive/refs/heads/master.zip",
             "path": "./modules/vendor-patch/autoload-package",
             "ignore": [".*"]
+        },
+        "inverisoss/tiny-php-queue": {
+            "url": "https://github.com/inverisOSS/tiny-php-queue/archive/refs/tags/1.0.0.zip",
+            "path": "./modules/inverisoss/tiny-php-queue",
+            "ignore": [".*"]
         }
     }
 },
@@ -78,7 +83,8 @@
 	"karelwintersky/monolog-pdo-handler" : "*",
 	"catfan/medoo" : "*",
 	"byjg/migration" : "*",
-	"bramus/router" : "*"
+	"bramus/router" : "*",
+	"inverisoss/tiny-php-queue": "*"
   },	  
   "autoload": {
     "classmap" : ["src/"],
