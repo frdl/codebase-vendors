@@ -87,6 +87,7 @@
      }
   },
   "suggest" : {
-     "frdl/project" : "Frdlweb project template"
+     "frdl/project" : "Frdlweb project template",
+     "webfan3/website" : "Default Start/Installer Template"
   }
 }
