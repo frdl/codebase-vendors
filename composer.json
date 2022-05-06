@@ -74,7 +74,10 @@
 	"nikic/php-parser" : "*",
 	"hellogerard/jobby" : "*",
 	"php-di/php-di" : "*",
-	"caseyamcl/configula" : "*"
+	"caseyamcl/configula" : "*",
+	"karelwintersky/monolog-pdo-handler" : "*",
+	"catfan/medoo" : "*",
+	"byjg/migration" : "*"
   },	  
   "autoload": {
     "classmap" : ["src/"],
