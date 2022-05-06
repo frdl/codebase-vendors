@@ -47,8 +47,10 @@
 },
 "minimum-stability":"dev",
     "config": {
- 
-        "cache-files-ttl": 900
+         "bin-dir": "~/.webfan/bin",
+        "preferred-install": "auto",
+        "cache-files-ttl": 3600,
+        "prepend-autoloader": true
     },  
 	 "require-dev" : {		 
 
