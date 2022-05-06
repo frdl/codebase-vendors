@@ -77,7 +77,8 @@
 	"caseyamcl/configula" : "*",
 	"karelwintersky/monolog-pdo-handler" : "*",
 	"catfan/medoo" : "*",
-	"byjg/migration" : "*"
+	"byjg/migration" : "*",
+	"bramus/router" : "*"
   },	  
   "autoload": {
     "classmap" : ["src/"],
@@ -86,6 +87,6 @@
      }
   },
   "suggest" : {
-
+     "frdl/project" : "Frdlweb project template"
   }
 }
