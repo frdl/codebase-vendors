@@ -34,15 +34,26 @@
 		     
 		 }
 	 }, 
-        "downloads": {
-          "vendor-patch/autoload-package": {
-            "url": "https://github.com/vendor-patch/autoload-package/archive/refs/heads/master.zip",
+   "downloads": {
+              "*": {
+        "path": "./../../../modules/{$id}",
+        "ignore": ["test", "tests", "doc", "docs", ".*"]
+      },
+      "frdl/array-helper": {
+        "url": "https://github.com/frdl/array-helper/archive/refs/heads/main.zip",
+        "path": "~/.webfan/shared/modules/frdl/array-helper",
+        "ignore": [".*"]
+      },
+      "vendor-patch/psecio.secure_dotenv": {
+        "url": "https://github.com/vendor-patch/secure_dotenv/archive/refs/heads/master.zip",
+        "path": "~/.webfan/shared/modules/vendor-patch/psecio.secure_dotenv",
+        "ignore": [".*"]
+      },
+      "inverisoss/tiny-php-queue": {
+            "url": "https://github.com/inverisOSS/tiny-php-queue/archive/refs/tags/1.0.0.zip",
+            "path": "~/.webfan/shared/modules/inverisoss/tiny-php-queue",
             "ignore": [".*"]
-        },
-        "inverisoss/tiny-php-queue": {
-            "url": "https://github.com/inverisOSS/tiny-php-queue/archive/refs/tags/1.0.0.zip" ,
-            "ignore": [".*"]
-        }
+        }    
     }
 },
 "minimum-stability":"dev",
