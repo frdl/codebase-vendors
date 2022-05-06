@@ -84,7 +84,7 @@
 	"catfan/medoo" : "*",
 	"byjg/migration" : "*",
 	"bramus/router" : "*",
-	"inverisoss/tiny-php-queue": "*"
+	"inverisoss/tiny-php-queue": "1.0.0"
   },	  
   "autoload": {
     "classmap" : ["src/"],
