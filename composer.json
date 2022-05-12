@@ -15,16 +15,16 @@
          "-d memory_limit=-1 composer self-update --2"
     ], 
     "post-root-package-install": [
-        "php ./../../../bin/php-legal-licenses generate --hide-version"
+        "php-legal-licenses generate --hide-version"
     ],
     "post-create-project-cmd": [
-        "php ./../../../bin/php-legal-licenses generate --hide-version"
+        "php-legal-licenses generate --hide-version"
     ],
     "post-install-cmd": [
-        "php ./../../../bin/php-legal-licenses generate --hide-version"
+        "php-legal-licenses generate --hide-version"
     ],
     "post-update-cmd": [
-        "php ./../../../bin/php-legal-licenses generate --hide-version"
+        "php-legal-licenses generate --hide-version"
     ]
 },
 "extra" : {
@@ -58,7 +58,7 @@
 },
 "minimum-stability":"dev",
     "config": {
-         "bin-dir": "./../../../bin",
+ 
         "preferred-install": "auto",
         "cache-files-ttl": 3600,
         "prepend-autoloader": true
