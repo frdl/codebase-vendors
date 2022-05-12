@@ -94,7 +94,8 @@
 	"karelwintersky/monolog-pdo-handler" : "*",
 	"catfan/medoo" : "*",
 	"byjg/migration" : "*",
-	"bramus/router" : "*" 
+	"bramus/router" : "*",
+	"adhocore/cli" : "*"
   },	  
   "autoload": {
     "classmap" : ["src/"],
