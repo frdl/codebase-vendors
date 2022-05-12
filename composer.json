@@ -15,16 +15,16 @@
          "-d memory_limit=-1 composer self-update --2"
     ], 
     "post-root-package-install": [
-        "php-legal-licenses generate --hide-version"
+        "php ./../../../bin/php-legal-licenses generate --hide-version"
     ],
     "post-create-project-cmd": [
-        "php-legal-licenses generate --hide-version"
+        "php ./../../../bin/php-legal-licenses generate --hide-version"
     ],
     "post-install-cmd": [
-        "php-legal-licenses generate --hide-version"
+        "php ./../../../bin/php-legal-licenses generate --hide-version"
     ],
     "post-update-cmd": [
-        "php-legal-licenses generate --hide-version"
+        "php ./../../../bin/php-legal-licenses generate --hide-version"
     ]
 },
 "extra" : {
