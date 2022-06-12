@@ -98,7 +98,8 @@
 	"adhocore/cli" : "*",
 	"rosell-dk/locate-binaries" : "*",
 	"rosell-dk/htaccess-capability-tester" : "*",
-	"rosell-dk/exec-with-fallback" : "*"
+	"rosell-dk/exec-with-fallback" : "*",
+	"league/commonmark" : "*"
   },	  
   "autoload": {
     "classmap" : ["src/"],
