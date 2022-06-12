@@ -95,7 +95,10 @@
 	"catfan/medoo" : "*",
 	"byjg/migration" : "*",
 	"bramus/router" : "*",
-	"adhocore/cli" : "*"
+	"adhocore/cli" : "*",
+	"rosell-dk/locate-binaries" : "*",
+	"rosell-dk/htaccess-capability-tester" : "*",
+	"rosell-dk/exec-with-fallback" : "*"
   },	  
   "autoload": {
     "classmap" : ["src/"],
