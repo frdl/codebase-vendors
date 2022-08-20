@@ -178,6 +178,10 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 			$FileAll = (new \Nette\PhpGenerator\Extractor(file_get_contents($file)))->extractAll();
 			$code = (new \Nette\PhpGenerator\PsrPrinter)->printFile($FileAll);
 		 
+			if(isset($_SERVER['HTTP_X_SOURCE_ENCODING']) && 'b64' === $_SERVER['HTTP_X_SOURCE_ENCODING'] ){
+				$code = base64_encode($code);
+			}
+			
 			header('Content-Type: text/plain');
 		
 
@@ -258,6 +262,10 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 		    	$outPut = file_get_contents($file);
 			}
 
+			if(isset($_SERVER['HTTP_X_SOURCE_ENCODING']) && 'b64' === $_SERVER['HTTP_X_SOURCE_ENCODING'] ){
+				$outPut = base64_encode($outPut);
+			}
+			
 			
 			header('Content-Type: text/plain');
 		   
