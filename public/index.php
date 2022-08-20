@@ -43,9 +43,9 @@ require __DIR__.'/../vendor/autoload.php';
 
 $per_page = 25;
 
-$someDirs=[
- 'vendor',	
+$someDirs=[	
  'src',	
+ 'vendor',
  'packages',	
  'modules',	
 	
