@@ -320,7 +320,7 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 		//$source = str_replace('\\', '\\\\', $source);
 	//die(gettype($subNamespacePart).gettype($classes));
 		
-		
+		\wResponse::status(404);
 		
 			$didYouMeans[]=Helpers::getSuggestion($classes, $source);
 		 	
