@@ -290,7 +290,7 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 			return;
 		}
 	}else{
-			\wResponse::status(404);
+			header( $_SERVER['SERVER_PROTOCOL']." 404 Not Found", true );
 		    $content.='Not found - 404 ['.__LINE__.']<br />';
 			//$variants = array_keys($classMaps[$source]);
 			//$content.=print_r($variants,true);
@@ -320,7 +320,7 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 		//$source = str_replace('\\', '\\\\', $source);
 	//die(gettype($subNamespacePart).gettype($classes));
 		
-		\wResponse::status(404);
+		header( $_SERVER['SERVER_PROTOCOL']." 404 Not Found", true );
 		
 			$didYouMeans[]=Helpers::getSuggestion($classes, $source);
 		 	
