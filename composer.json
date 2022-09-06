@@ -78,7 +78,7 @@
 	"frdl/php-floodprotection": "*",
 	"frdl/remote-psr4" : "*",
 	"frdl/event-module" : "*",
-	"webfan3/php-easy-breaker" : "*",
+	"webfan3/php-easy-breaker" : ">=0.3.6",
         "comcast/php-legal-licenses":"*",
 	"ninsuo/php-shared-memory":"*", 
 	"nette/utils":"*", 
