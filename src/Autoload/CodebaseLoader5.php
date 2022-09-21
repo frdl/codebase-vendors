@@ -83,7 +83,30 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 		$this->setTempDirectory($this->tempDir('classmaps-meta-cache', 'local'));
 	}
 
+ public function sign($cleartext,$private_key, $sep = 'X19oYWx0X2NvbXBpbGVyKCk7')
+    {
+      $msg_hash = sha1($cleartext);
+      \openssl_private_encrypt($msg_hash, $sig, $private_key);
+       $signed_data = $cleartext .base64_decode($sep). "----SIGNATURE:----" . $sig;
+      return $signed_data;
+   }
 
+ public function verify($my_signed_data,$public_key, $sep = 'X19oYWx0X2NvbXBpbGVyKCk7')
+   {
+    list($plain_data,$sigdata) = explode(base64_decode($sep), $my_signed_data, 2);
+    list($nullVoid,$old_sig) = explode("----SIGNATURE:----", $sigdata, 2);
+    if(empty($old_sig)){
+      return new \Exception("ERROR -- unsigned data");
+    }
+    \openssl_public_decrypt($old_sig, $decrypted_sig, $public_key);
+    $data_hash = sha1($plain_data);
+    if($decrypted_sig === $data_hash && strlen($data_hash)>0){
+        return $plain_data;
+	}else{
+        return new \Exception("ERROR -- untrusted signature");
+	}
+  }
+	
 	public function __destruct()
 	{
 		if ($this->needSave) {
