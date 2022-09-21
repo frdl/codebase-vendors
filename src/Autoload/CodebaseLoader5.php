@@ -83,23 +83,35 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 		$this->setTempDirectory($this->tempDir('classmaps-meta-cache', 'local'));
 	}
 
- public function sign($cleartext,$private_key, $sep = 'X19oYWx0X2NvbXBpbGVyKCk7')
+ public function sign($cleartext,$private_key, $sep = null, $ATTACHMENT = '')
     {
-      $msg_hash = sha1($cleartext);
+	 if(null===$sep){
+		$sep = self::PHP_STOP_PARSING_TOKEN; 
+	 }
+      $msg_hash = sha1($cleartext.$ATTACHMENT).strlen($cleartext.$ATTACHMENT);
       \openssl_private_encrypt($msg_hash, $sig, $private_key);
-       $signed_data = $cleartext .base64_decode($sep). "----SIGNATURE:----" . $sig;
+       $signed_data = $cleartext 
+		   .base64_decode($sep)
+		   . "----SIGNATURE:----" . base64_encode($sig)
+		   . "----ATTACHMENT:----" . base64_encode($ATTACHMENT);
       return $signed_data;
    }
 
- public function verify($my_signed_data,$public_key, $sep = 'X19oYWx0X2NvbXBpbGVyKCk7')
+ public function verify($my_signed_data,$public_key, $sep = null, &$ATTACHMENT = null)
    {
+	 if(null===$sep){
+		$sep = self::PHP_STOP_PARSING_TOKEN; 
+	 }
     list($plain_data,$sigdata) = explode(base64_decode($sep), $my_signed_data, 2);
-    list($nullVoid,$old_sig) = explode("----SIGNATURE:----", $sigdata, 2);
+    list($nullVoid,$old_sig_1) = explode("----SIGNATURE:----", $sigdata, 2);
+    list($old_sig,$ATTACHMENT) = explode("----ATTACHMENT:----", $old_sig_1, 2);
+	 $old_sig = base64_decode($old_sig);	 
+	 $ATTACHMENT = base64_decode($ATTACHMENT);
     if(empty($old_sig)){
       return new \Exception("ERROR -- unsigned data");
     }
     \openssl_public_decrypt($old_sig, $decrypted_sig, $public_key);
-    $data_hash = sha1($plain_data);
+    $data_hash = sha1($plain_data.$ATTACHMENT).strlen($plain_data.$ATTACHMENT);
     if($decrypted_sig === $data_hash && strlen($data_hash)>0){
         return $plain_data;
 	}else{
