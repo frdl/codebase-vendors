@@ -82,6 +82,12 @@ if(!file_exists($pub_key_file) || !file_exists($priv_key_file) ){
 }
 
 
+if(isset($_GET['source']) && '@server.key'===$_GET['source']){
+  header('Content-Type: text/plain');
+  echo file_get_contents($pub_key_file);
+  exit;
+}
+
 
 $per_page = 25;
 
