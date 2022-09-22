@@ -91,7 +91,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 	 if(null===$sep){
 		$sep = self::PHP_STOP_PARSING_TOKEN; 
 	 }
-      $msg_hash = sha1($cleartext.$ATTACHMENT).strlen($cleartext.$ATTACHMENT);
+      $msg_hash = sha1($cleartext.$ATTACHMENT).substr(str_pad(strlen($cleartext.$ATTACHMENT).'', 128, strlen($cleartext.$ATTACHMENT) % 10, \STR_PAD_LEFT), 0, 128);
       \openssl_private_encrypt($msg_hash, $sig, $private_key);
        $signed_data = $cleartext 
 		   .base64_decode($sep)
@@ -114,7 +114,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
       return new \Exception("ERROR -- unsigned data");
     }
     \openssl_public_decrypt($old_sig, $decrypted_sig, $public_key);
-    $data_hash = sha1($plain_data.$ATTACHMENT).strlen($plain_data.$ATTACHMENT);
+    $data_hash = sha1($plain_data.$ATTACHMENT).substr(str_pad(strlen($plain_data.$ATTACHMENT).'', 128, strlen($plain_data.$ATTACHMENT) % 10, \STR_PAD_LEFT), 0, 128);
     if($decrypted_sig === $data_hash && strlen($data_hash)>0){
         return $plain_data;
 	}else{
