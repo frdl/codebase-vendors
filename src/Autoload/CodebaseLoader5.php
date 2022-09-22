@@ -15,8 +15,11 @@ use Webfan\Traits\WithTimeout;
 class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, ClassmapGeneratorInterface, ResolverInterface
 {
 	use Nette\SmartObject, DirectoriesTrait, WithTimeout;
-    const VERSION = 'v2';
+   
+	const VERSION = 'v2';
 	const TIMEOUT = 180;
+	const PHP_STOP_PARSING_TOKEN = 'X19oYWx0X2NvbXBpbGVyKCk7';
+	
 	protected const RETRY_LIMIT = 3;
 
 	protected $ambiguous = [];
