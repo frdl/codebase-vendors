@@ -52,8 +52,11 @@ if(!is_dir(dirname($priv_key_file))){
   mkdir(dirname($priv_key_file), 0755, true);	
 }
 
-if(!file_exists($pub_key_file) || !file_exists($priv_key_file) ){
-   $config = array(
+$password = 'chANgeThisToYourPassword';
+$expires = 28 * 24 * 60 * 60;
+
+if(!file_exists($pub_key_file) || !file_exists($priv_key_file) || filemtime($pub_key_file) < time() - $expires){
+	$config = array(
     "digest_alg" => "sha512",
     "private_key_bits" => 4096,
     "private_key_type" => \OPENSSL_KEYTYPE_RSA,
@@ -63,7 +66,7 @@ if(!file_exists($pub_key_file) || !file_exists($priv_key_file) ){
    $res = openssl_pkey_new($config);
 
   // Extract the private key from $res to $privKey
-   openssl_pkey_export($res, $privKey);
+   openssl_pkey_export($res, $privKey, $password);
 
     // Extract the public key from $res to $pubKey
     $pubKey = openssl_pkey_get_details($res);
@@ -81,9 +84,9 @@ if(!file_exists($pub_key_file) || !file_exists($priv_key_file) ){
      //openssl_private_decrypt($encrypted, $decrypted, $privKey);
 }
 
-
 if(isset($_GET['source']) && '@server.key'===$_GET['source']){
   header('Content-Type: text/plain');
+  header('X-Frdlweb-Source-Expires: '.(filemtime($pub_key_file) + $expires));
   echo file_get_contents($pub_key_file);
   exit;
 }
@@ -117,7 +120,53 @@ $someDirs=[
  }
 
 
- 
+ $moduleDirs = [
+    __DIR__ . \DIRECTORY_SEPARATOR. '..'.  \DIRECTORY_SEPARATOR.'php-node_modules'.  \DIRECTORY_SEPARATOR,	
+];
+
+$uri =  substr($_SERVER['REQUEST_URI'], strlen('/'.basename(__DIR__)), strlen($_SERVER['REQUEST_URI']) );	
+	
+   $u = explode('?', $uri);
+   $uri = $u[0];
+   $uri = str_replace(['/./', '/../'], ['', ''], $uri);
+ if('/' !== $uri){
+   foreach($moduleDirs as $moduleDir){	
+	$file = $moduleDir . str_replace('/', \DIRECTORY_SEPARATOR, $uri);
+	   if(file_exists($file)){
+				
+		  $outPut = file_get_contents($file); 
+		   
+		   $outPut = false === strpos($outPut, base64_decode('X19oYWx0X2NvbXBpbGVyKCk7')) 
+					  ? $loader->sign($outPut,[ file_get_contents($priv_key_file), $password], 'X19oYWx0X2NvbXBpbGVyKCk7')
+					  : $outPut;	
+			//   if(isset($_GET['test']))die($loader->verify($outPut,file_get_contents($pub_key_file),'X19oYWx0X2NvbXBpbGVyKCk7'));
+			
+			
+			if((isset($_SERVER['HTTP_X_SOURCE_ENCODING']) && 'b64' === $_SERVER['HTTP_X_SOURCE_ENCODING'])
+			    || 
+			   (isset($_GET['source-encoding']) && 'b64' === $_GET['source-encoding'] )
+			  ){
+				$outPut = base64_encode($outPut);
+			}
+		
+			header('Content-Type: text/plain');
+		   
+			$hash_check = strlen($outPut).'.'.sha1($outPut);
+	    $userHash_check = sha1(((isset($_GET['salt']))?$_GET['salt']:null) .$hash_check);	
+		header('X-Content-Hash: '.$hash_check);
+		header('X-User-Hash: '.$userHash_check);
+			
+		header('Content-Md5: '.md5($outPut));
+		header('Content-Sha1: '.sha1($outPut));
+			
+		 echo $outPut;
+		 return;
+	   }
+   }
+	 
+	header( $_SERVER['SERVER_PROTOCOL']." 404 Not Found", true );
+	 $content .= 'Not found';
+ }
  
 
   $didYouMeans = [];
@@ -228,7 +277,7 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 		 
 						
 			$code = false === strpos($code, base64_decode('X19oYWx0X2NvbXBpbGVyKCk7')) 
-					  ? $loader->sign($code, file_get_contents($priv_key_file), 'X19oYWx0X2NvbXBpbGVyKCk7')
+					  ? $loader->sign($code, [ file_get_contents($priv_key_file), $password], 'X19oYWx0X2NvbXBpbGVyKCk7')
 					  : $code;	
 						
 			if((isset($_SERVER['HTTP_X_SOURCE_ENCODING']) && 'b64' === $_SERVER['HTTP_X_SOURCE_ENCODING'])
@@ -321,7 +370,7 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 					
 							
 			$outPut = false === strpos($outPut, base64_decode('X19oYWx0X2NvbXBpbGVyKCk7')) 
-					  ? $loader->sign($outPut, file_get_contents($priv_key_file), 'X19oYWx0X2NvbXBpbGVyKCk7')
+					  ? $loader->sign($outPut, [ file_get_contents($priv_key_file), $password], 'X19oYWx0X2NvbXBpbGVyKCk7')
 					  : $outPut;	
 			
 			
