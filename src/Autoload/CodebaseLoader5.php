@@ -88,6 +88,10 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 
  public function sign($cleartext,$private_key, $sep = null, $ATTACHMENT = '')
     {
+	 if(is_array($private_key)){
+		 $private_key =  \openssl_get_privatekey($private_key[0],$private_key[1]);
+	 }
+	 
 	 if(null===$sep){
 		$sep = self::PHP_STOP_PARSING_TOKEN; 
 	 }
