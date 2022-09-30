@@ -271,7 +271,7 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 			
 			
 		if(isset($_GET['bundle'])){	
-		//	$code = file_get_contents($file);
+			$code = file_get_contents($file);
 			$rawFileContents = $code;
 			$FileAll = (new \Nette\PhpGenerator\Extractor(file_get_contents($file)))->extractAll();
 			$code = (new \Nette\PhpGenerator\PsrPrinter)->printFile($FileAll);
