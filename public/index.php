@@ -272,10 +272,15 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 			
 		if(isset($_GET['bundle'])){	
 		//	$code = file_get_contents($file);
+			$rawFileContents = $code;
 			$FileAll = (new \Nette\PhpGenerator\Extractor(file_get_contents($file)))->extractAll();
 			$code = (new \Nette\PhpGenerator\PsrPrinter)->printFile($FileAll);
-		 
-						
+			if( empty(trim($code, ' <?php ')) 
+			   || preg_match("/(echo|\=)([\s\t\n\r]*)\<\<\<[\s\t\n\r]*/", $rawFileContents)){
+		    	$code = $rawFileContents;
+			}
+			
+			
 			$code = false === strpos($code, base64_decode('X19oYWx0X2NvbXBpbGVyKCk7')) 
 					  ? $loader->sign($code, [ file_get_contents($priv_key_file), $password], 'X19oYWx0X2NvbXBpbGVyKCk7')
 					  : $code;	
@@ -363,8 +368,11 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 			$outPut = (new \Nette\PhpGenerator\PsrPrinter)->printFile($File);
 		}
 			
-			if(0===count($Nss) || empty(trim($outPut, ' <?php '))){
-		    	$outPut = file_get_contents($file);
+			$rawFileContents = file_get_contents($file);
+			
+			if(0===count($Nss) || empty(trim($outPut, ' <?php ')) 
+			   || preg_match("/(echo|\=)([\s\t\n\r]*)\<\<\<[\s\t\n\r]*/", $rawFileContents)){
+		    	  $outPut = $rawFileContents;
 			}
 
 					
