@@ -276,7 +276,7 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 			$FileAll = (new \Nette\PhpGenerator\Extractor(file_get_contents($file)))->extractAll();
 			$code = (new \Nette\PhpGenerator\PsrPrinter)->printFile($FileAll);
 			if( empty(trim($code, ' <?php ')) 
-			   || preg_match("/(echo|\=)([\s\t\n\r]*)\<\<\<[\s\t\n\r]*/", $rawFileContents)){
+			   || preg_match("/(echo|\=)([\s\t\n\r]*)\<\<\<([\w]*)[\s\t\n\r]*/", $rawFileContents)){
 		    	$code = $rawFileContents;
 			}
 			
@@ -371,7 +371,7 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 			$rawFileContents = file_get_contents($file);
 			
 			if(0===count($Nss) || empty(trim($outPut, ' <?php ')) 
-			   || preg_match("/(echo|\=)([\s\t\n\r]*)\<\<\<[\s\t\n\r]*/", $rawFileContents)){
+			   || preg_match("/(echo|\=)([\s\t\n\r]*)\<\<\<([\w]*)[\s\t\n\r]*/", $rawFileContents)){
 		    	  $outPut = $rawFileContents;
 			}
 
