@@ -324,10 +324,8 @@ class CommonJavascript
 						continue;			
 					}elseif(is_string($middleware[0]) && !preg_match($middleware[0], $moduleFilePath)){		
 						continue;			
-					}else{
-						error_log('Invalid middleware in '.__FILE__, \E_USER_WARNING);
-					  continue;	
 					}
+					
 					$moduleFileContent = call_user_func_array($middleware[1], [$moduleFileContent]);		
 					if(!is_string($moduleFileContent)){		
 						 throw new Exception('ERROR: Validation failed (from path: '.$moduleFilePath.')!');
@@ -348,7 +346,7 @@ class CommonJavascript
                 $phpCode = "<?php\n return $exp;";
 
 				if(!is_dir(dirname($cachePathFile))){
-					mkdir(dirname($cachePathFile), 0755, true);
+					mkdir(dirname($cachePathFile), 0775, true);
 				}
                 file_put_contents($cachePathFile, $phpCode);
                 return include $tempFilename;
