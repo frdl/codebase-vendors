@@ -12,4 +12,5 @@ interface StubRunnerInterface
 	public function getInvoker();	
 	public function getShield();	
 	public function autoloading() : void;
+	public function config(?array $config = null) : array;
 }
