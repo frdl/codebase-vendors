@@ -1,7 +1,7 @@
 <?php
 namespace Frdlweb;
 
-interface WebAppInterface extends AppInterface
+interface WebAppInterface extends \frdlweb\AppInterface
 {
   
 }
