@@ -1,8 +1,8 @@
 <?php
 
-namespace frdl{
+namespace frdl;
 
-if (!\class_exists(Codebase::class, false)) {		
+	
  abstract class Codebase implements \Frdlweb\Contract\Autoload\CodebaseInterface
  {
    protected $channels = null;
@@ -56,5 +56,5 @@ if (!\class_exists(Codebase::class, false)) {
    }
 	  	 
  }
-}
-}
+
+
