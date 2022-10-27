@@ -18,7 +18,8 @@ if (!\interface_exists(CodebaseInterface::class, false)) {
    public function setUpdateChannel(string $channel); 
    public function getUpdateChannel() : string; 
    public function getRemotePsr4UrlTemplate() : string; 
-   public function getRemoteModulesBaseUrl() : string; 
+   public function getRemoteModulesBaseUrl() : string;
+   public function loadUpdateChannel(mixed $StubRunner = null) : string;
  }
 } 
 }
