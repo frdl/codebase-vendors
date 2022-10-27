@@ -15,4 +15,6 @@ interface StubRunnerInterface
 	public function config(?array $config = null, $trys = 0) : array;
 	public function configVersion(?array $config = null, $trys = 0) : array;		
 	public function getCodebase() :?\Frdlweb\Contract\Autoload\CodebaseInterface;
+	public function getWebrootConfigDirectory() : string;
+	public function getApplicationsDirectory() : string;
 }
