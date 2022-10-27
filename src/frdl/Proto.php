@@ -7,13 +7,8 @@ namespace frdl;
  * @author Petr Trofimov <petrofimov@yandex.ru>
  * @see https://github.com/ptrofimov/jslikeobject
  */
-
-
-
-
-
 class Proto
-
+{
     protected $properties = [];
 	
     public static function create($arg)
@@ -78,4 +73,4 @@ class Proto
         }
 	   return $this;
     }
-}
+}	
