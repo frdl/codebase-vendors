@@ -10,10 +10,11 @@ namespace frdl;
 
 
 
+
+
 class Proto
-{
-    /** @var array */
-    private $properties = [];
+
+    protected $properties = [];
 	
     public static function create($arg)
     {
@@ -45,11 +46,17 @@ class Proto
 
     public function __call($method, array $args)
     {
-        return is_callable($this->{$method})
+		$____method = '____'.$method; 
+		
+        return (is_callable($this->{$method})
             ? call_user_func_array(
                 $this->{$method}->bindTo($this),
                 $args
-            ) : null;
+            ) : ( method_exists($this,$____method) 
+            ? call_user_func_array(
+                [$this,$____method],
+                $args
+            ) : null));
     }
 
     public function __invoke(...$args)
@@ -63,7 +70,7 @@ class Proto
         return $instance;
     }
 	
-    public function extend(...$args)
+    public function ____extend(...$args)
     {
 	   $this->prototype = \frdl\create(...$args);
         if ($this->constructor) {
@@ -71,4 +78,4 @@ class Proto
         }
 	   return $this;
     }
-}	
+}
