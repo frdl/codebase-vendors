@@ -9,7 +9,7 @@ interface StubRunnerInterface
 	public function getStubVM() : StubHelperInterface;	
 	public function getStub() : StubItemInterface;		
 	public function __invoke() :?StubHelperInterface;	
-	public function hugVM(?StubHelperInterface $runner);
+	public function hugVM(?StubHelperInterface $MimeVM);
 	public function getInvoker();	
 	public function getShield();	
 	public function autoloading() : void;
