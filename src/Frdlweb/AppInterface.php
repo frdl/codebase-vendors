@@ -1,6 +1,6 @@
 <?php 
 
-namespace frdlweb;
+namespace Frdlweb;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
