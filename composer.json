@@ -105,7 +105,8 @@
     "classmap" : ["src/"],
     "psr-4": {
 
-     }
+     },
+    "files": ["functions.php"]
   },
   "suggest" : {
      "frdl/project" : "Frdlweb project template",
