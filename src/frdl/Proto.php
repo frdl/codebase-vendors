@@ -17,7 +17,8 @@ class Proto
 	
     public static function create($arg)
     {
-        return new static(is_callable($arg) ? ['constructor' => $arg] : (array) $arg);
+		$class = \get_called_class();
+        return new $class(\is_callable($arg) ? ['constructor' => $arg] : (array) $arg);
     }
 	
     public function __construct(array $properties = [])
@@ -51,13 +52,23 @@ class Proto
             ) : null;
     }
 
-    public function __invoke()
+    public function __invoke(...$args)
     {
-        $instance = new static($this->properties);
+		$class = \get_class($this);
+        $instance = new $class($this->properties);
         if ($this->constructor) {
-            $instance->constructor();
+            $instance->constructor(...$args);
         }
 
         return $instance;
+    }
+	
+    public function extend(...$args)
+    {
+	   $this->prototype = \frdl\create(...$args);
+        if ($this->constructor) {
+            $this->constructor(...$args);
+        }
+	   return $this;
     }
 }	
