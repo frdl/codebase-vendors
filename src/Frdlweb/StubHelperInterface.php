@@ -14,5 +14,5 @@ namespace frdlweb;
   public function __invoke(); 	
   public function __call($name, $arguments);
   public function getFileAttachment($file = null, $offset = null);	   
-  public function hugRunner(?mixed $runner);
+  public function hugRunner(mixed $runner);
  }
