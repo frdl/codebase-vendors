@@ -262,7 +262,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 	 */
 	public function rebuild(): void
 	{
-		$this->withTimeout(max(180, max(intval(ini_get('max_execution_time')), 45)));
+		$this->withTimeout(max(300, intval(ini_get('max_execution_time')) ));
 		$this->cacheLoaded = true;
 		$this->classes = $this->missingClasses = $this->emptyFiles = [];
 		$this->refreshClasses();
@@ -278,7 +278,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 	 */
 	public function refresh(): void
 	{
-		$this->withTimeout(max(180, max(intval(ini_get('max_execution_time')), 45)));
+		$this->withTimeout(max(300, intval(ini_get('max_execution_time')) ));
 		$this->loadCache();
 		if (!$this->refreshed) {
 			$this->refreshClasses();
@@ -303,13 +303,13 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 		$this->classes = $this->emptyFiles = [];
 
 		foreach ($this->scanPaths as $path) {
-			$this->withTimeout(max(180, max(intval(ini_get('max_execution_time')), 45)));
+			$this->withTimeout(max(300, intval(ini_get('max_execution_time')) ));
 			$iterator = is_file($path)
 				? [new SplFileInfo($path)]
 				: $this->createFileIterator($path);
 
 			foreach ($iterator as $fileInfo) {
-				$this->withTimeout(max(180, max(intval(ini_get('max_execution_time')), 45)));
+				$this->withTimeout(max(300, intval(ini_get('max_execution_time')) ));
 				$mtime = $fileInfo->getMTime();
 				$file = $fileInfo->getPathname();
 				$foundClasses = isset($files[$file]) && $files[$file] === $mtime
@@ -417,7 +417,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 	protected function updateFile(string $file): void
 	{
 		
-		$this->withTimeout( max(180, max(intval(ini_get('max_execution_time')), 45)) );
+		$this->withTimeout(max(300, intval(ini_get('max_execution_time')) ));
 		
 		foreach ($this->classes as $class => [$prevFile]) {
 			if ($file === $prevFile) {
@@ -435,6 +435,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
            //   $this->dubs[$hash][$file] = $foundClasses;	
 				  
 		foreach ($foundClasses as $class) {
+			$this->withTimeout(max(300, intval(ini_get('max_execution_time')) ));
 			[$prevFile, $prevMtime] = $this->classes[$class] ?? null;
 
 			if (isset($prevFile) && @filemtime($prevFile) !== $prevMtime) { // @ file may not exists
@@ -490,17 +491,14 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 		if(\php_sapi_name()!=='cli'){
 			set_time_limit(180);
 		}
-
-
 //(new \frdl\Lint\Php($cacheDirLint) ) ->lintString($codeWithStartTags)
-
 		if(true !== \frdl\Lint\Php::lintFileStatic($file,false) ){
 			trigger_error(sprintf('Parse error in %s', $file), \E_USER_WARNING);
 			return [];
 		}
 */	 		
 		
-		$this->withTimeout(max(180, max(intval(ini_get('max_execution_time')), 45)));
+		$this->withTimeout(max(300, intval(ini_get('max_execution_time')) ));
 		
 		$code = file_get_contents($file);
 		$expected = false;
@@ -528,8 +526,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 
 		foreach ($tokens as $token) {				
 			  $token=(object)$token;
-                          $this->withTimeout(max(180, max(intval(ini_get('max_execution_time')), 45)));
-			
+	
 			
 			switch ($token->id) {
 				case \T_COMMENT:
@@ -653,6 +650,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 			return;
 		}
 
+		$this->withTimeout(max(300, intval(ini_get('max_execution_time')) ));
 		$this->classes = $this->missingClasses = $this->emptyFiles = [];
 		$this->refreshClasses();
 		$this->saveCache($lock);
@@ -753,6 +751,4 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 }
 
 }
-
-
 
