@@ -7,6 +7,9 @@ if (!\class_exists(Codebase::class, false)) {
  {
    protected $channels = null;
    protected $channel = null;
+	
+   abstract public function loadUpdateChannel(mixed $StubRunner = null) : string; 
+	 
    public function __construct(string $channel = null){
 	   $this->channels = [];
 	   
