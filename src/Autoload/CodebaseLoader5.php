@@ -262,6 +262,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 	 */
 	public function rebuild(): void
 	{
+		set_time_limit(max(180, max(intval(ini_get('max_execution_time')), 45)));
 		$this->cacheLoaded = true;
 		$this->classes = $this->missingClasses = $this->emptyFiles = [];
 		$this->refreshClasses();
@@ -277,6 +278,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 	 */
 	public function refresh(): void
 	{
+		set_time_limit(max(180, max(intval(ini_get('max_execution_time')), 45)));
 		$this->loadCache();
 		if (!$this->refreshed) {
 			$this->refreshClasses();
@@ -301,11 +303,13 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 		$this->classes = $this->emptyFiles = [];
 
 		foreach ($this->scanPaths as $path) {
+			set_time_limit(max(180, max(intval(ini_get('max_execution_time')), 45)));
 			$iterator = is_file($path)
 				? [new SplFileInfo($path)]
 				: $this->createFileIterator($path);
 
 			foreach ($iterator as $fileInfo) {
+				set_time_limit(max(180, max(intval(ini_get('max_execution_time')), 45)));
 				$mtime = $fileInfo->getMTime();
 				$file = $fileInfo->getPathname();
 				$foundClasses = isset($files[$file]) && $files[$file] === $mtime
@@ -368,7 +372,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 							}
 							
 					}else{
-                       $this->classes[$class] = $info;
+                                          $this->classes[$class] = $info;
 					}
 					unset($this->missingClasses[$class]);
 				}
