@@ -1,6 +1,8 @@
 <?php
 namespace Frdlweb;
 
+use frdlweb\AppInterface;
+
 interface AdvancedWebAppInterface extends WebAppInterface
 {
   //public function findAppDir(string $userdir = null, $create = false);
