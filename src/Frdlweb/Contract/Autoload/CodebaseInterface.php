@@ -1,9 +1,7 @@
 <?php
 
-namespace Frdlweb\Contract\Autoload{
-	
-
-if (!\interface_exists(CodebaseInterface::class, false)) {	
+namespace Frdlweb\Contract\Autoload;
+ 	
  interface CodebaseInterface
  { 
    const CHANNEL_LATEST = 'latest';
@@ -21,5 +19,5 @@ if (!\interface_exists(CodebaseInterface::class, false)) {
    public function getRemoteModulesBaseUrl() : string;
    public function loadUpdateChannel(mixed $StubRunner = null) : string;
  }
-} 
-}
+
+ 
