@@ -12,5 +12,7 @@ interface StubRunnerInterface
 	public function getInvoker();	
 	public function getShield();	
 	public function autoloading() : void;
-	public function config(?array $config = null) : array;
+	public function config(?array $config = null, $trys = 0) : array;
+	public function configVersion(?array $config = null, $trys = 0) : array;		
+	public function getCodebase() :?\Frdlweb\Contract\Autoload\CodebaseInterface;
 }
