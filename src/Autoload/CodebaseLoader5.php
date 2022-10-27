@@ -293,6 +293,7 @@ class CodebaseLoader5 implements LoaderInterface, ClassLoaderInterface, Classmap
 	 */
 	protected function refreshClasses(): void
 	{
+		\ignore_user_abort(true);
 		$this->refreshed = true; // prevents calling refreshClasses() or updateFile() in tryLoad()
 		$files = $this->emptyFiles;
 		$classes = [];
