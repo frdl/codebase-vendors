@@ -9,9 +9,10 @@ trait WithTimeout {
 	  $timeout = (is_int($time_limit))
 		  ? $time_limit
 		  : (
-			     (null!==($class::TIMEOUT) && is_int($class::TIMEOUT) ) ? $class::TIMEOUT : 30
+			     (null!==($class::TIMEOUT) && is_int($class::TIMEOUT) ) ? $class::TIMEOUT : 45
 			  );
-	  set_time_limit($timeout);
+	  //set_time_limit($timeout);
+	  set_time_limit(max($timeout, max(intval(ini_get('max_execution_time')), 45)));
   }
 	
   public function withTimeout(int $time_limit = null){
@@ -19,9 +20,10 @@ trait WithTimeout {
 	  $timeout = (is_int($time_limit))
 		  ? $time_limit
 		  : (
-			     (null!==($class::TIMEOUT) && is_int($class::TIMEOUT) ) ? $class::TIMEOUT : 30
+			     (null!==($class::TIMEOUT) && is_int($class::TIMEOUT) ) ? $class::TIMEOUT : 45
 			  );
-	  set_time_limit($timeout);
+	//  set_time_limit($timeout);
+	   set_time_limit(max($timeout, max(intval(ini_get('max_execution_time')), 45)));
 	  return $this;
   }
 
