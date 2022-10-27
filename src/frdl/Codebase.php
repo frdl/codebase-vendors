@@ -3,7 +3,7 @@
 namespace frdl{
 
 if (!\class_exists(Codebase::class, false)) {		
- abstract class Codebase
+ abstract class Codebase implements \Frdlweb\Contract\Autoload\CodebaseInterface
  {
    protected $channels = null;
    protected $channel = null;
