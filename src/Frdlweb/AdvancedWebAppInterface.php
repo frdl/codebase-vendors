@@ -22,6 +22,6 @@ interface AdvancedWebAppInterface extends WebAppInterface
         string $prefix = ""
     );
     public function onError($number = null, $message = null, $file = nulle, $line = null, $errcontext = null);
-    public function exception_handler(\Exception $exception);
+    public function exception_handler($exception);
     public function main(string $alias = null);
 }
