@@ -66,11 +66,11 @@ namespace frdl{
 			 'addContainer' => function (\Psr\Container\ContainerInterface $container) {     
 				 return $this->getContainer()->addContainer($container); 
 			 },			 
-			 'setKernel' => function (\frdlweb\AppInterface $kernel) {     
+			 'setKernel' => function (\Frdlweb\AppInterface $kernel) {     
 					 $this->kernel = $kernel; 
 				 return $this;
 			 },
-			 'getKernel' => function (bool $load = true) : \frdlweb\AppInterface {     
+			 'getKernel' => function (bool $load = true) : \Frdlweb\AppInterface {     
 				 if(true === $load && null === $this->kernel){				
 					 $this->setKernel( \Webfan\Webfat\App\Kernel::mutex() ); 
 				 }
@@ -79,9 +79,7 @@ namespace frdl{
 			 'isLocalhost' => function () :bool {   
 				 return $_SERVER['REMOTE_ADDR'] === '127.0.0.1';
 			 },
-		 ]);		 
-		
-		//$this->obj = $this->obj();
+		 ]);		 		
 	 }
 	 
 	 public function getObject(){
