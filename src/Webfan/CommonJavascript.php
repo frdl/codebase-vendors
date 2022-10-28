@@ -79,27 +79,28 @@ class CommonJavascript
         'tmpPath' => \sys_get_temp_dir(),
            // 'basePath' => __DIR__,
         'basePath' =>array_merge($conf['basePath'], [
-            getcwd().\DIRECTORY_SEPARATOR.'modules',
+         //Nee   getcwd().\DIRECTORY_SEPARATOR.'modules',
             getenv('FRDL_WORKSPACE').\DIRECTORY_SEPARATOR.'modules',
-            'https://webfan.de/install/modules',
+            getenv('FRDL_WORKSPACE').\DIRECTORY_SEPARATOR.'node_modules',
+			'https://startdir.de/install/modules',
             'https://webfan.de/install/stable',
             'https://webfan.de/install/latest',
-            getcwd(),
+            'https://webfan.de/install/modules',
+         //   getcwd(),
         ]),
         'modulesExt' => '.php',
         'folderAsModuleFileName' => 'index.php',
         'packageInfoFileName' => 'package.php',
            //   'autoNamespacing' => false,
         'autoNamespacing' => true,
-        'autoNamespacingCacheExpires' => 24*60*60,
+        'autoNamespacingCacheExpires' => 31 * 24*60*60,
 		'validators' => [],
         ), $conf);
 			
 		$config['basePath']	= array_merge($config['basePath'], [
-            getcwd().\DIRECTORY_SEPARATOR.'modules',
             'https://webfan.de/install/modules',
             getenv('FRDL_WORKSPACE').\DIRECTORY_SEPARATOR.'modules',
-            getcwd(),
+            getenv('FRDL_WORKSPACE').\DIRECTORY_SEPARATOR.'node_modules',
         ]);
 			
 		$config['basePath'] = array_unique($config['basePath']);	
@@ -340,8 +341,12 @@ class CommonJavascript
                // eval($moduleFileContent);
                 $tempFilename = \Webfan\CommonJavascript::temporaryFile($moduleFileContent, null, $autoNamespacingCacheExpires, $tmpPath);
                 $exp = var_export([
+					'id' => $module['id'],
                     'file'=>$tempFilename,
                     'time'=>time(),
+					'sha1' => sha1($moduleFileContent),
+					'size' => strlen($moduleFileContent),
+					'source' => $moduleFilePath,
                     ],true);
                 $phpCode = "<?php\n return $exp;";
 
