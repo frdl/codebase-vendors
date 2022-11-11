@@ -137,7 +137,10 @@ $uri =  substr($_SERVER['REQUEST_URI'], strlen('/'.basename(__DIR__)), strlen($_
 		  $outPut = file_get_contents($file); 
 		   
 		   $outPut = false === strpos($outPut, base64_decode('X19oYWx0X2NvbXBpbGVyKCk7')) 
-					  ? $loader->sign($outPut,[ file_get_contents($priv_key_file), $password], 'X19oYWx0X2NvbXBpbGVyKCk7')
+					  ? $loader->sign($outPut,[ file_get_contents($priv_key_file), $password], 'X19oYWx0X2NvbXBpbGVyKCk7', 
+									 mt_rand(0, 9999999999999999).' '
+									 .mt_rand(0, 9999999999999999).' '
+									 .mt_rand(0, 9999999999999999))
 					  : $outPut;	
 			//   if(isset($_GET['test']))die($loader->verify($outPut,file_get_contents($pub_key_file),'X19oYWx0X2NvbXBpbGVyKCk7'));
 			
@@ -282,7 +285,10 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 			
 			
 			$code = false === strpos($code, base64_decode('X19oYWx0X2NvbXBpbGVyKCk7')) 
-					  ? $loader->sign($code, [ file_get_contents($priv_key_file), $password], 'X19oYWx0X2NvbXBpbGVyKCk7')
+					  ? $loader->sign($code, [ file_get_contents($priv_key_file), $password], 'X19oYWx0X2NvbXBpbGVyKCk7', 
+									 mt_rand(0, 9999999999999999).' '
+									 .mt_rand(0, 9999999999999999).' '
+									 .mt_rand(0, 9999999999999999))
 					  : $code;	
 						
 			if((isset($_SERVER['HTTP_X_SOURCE_ENCODING']) && 'b64' === $_SERVER['HTTP_X_SOURCE_ENCODING'])
@@ -378,7 +384,10 @@ if(empty($content) && isset($_GET['source']) && '*'!==$_GET['source']){
 					
 							
 			$outPut = false === strpos($outPut, base64_decode('X19oYWx0X2NvbXBpbGVyKCk7')) 
-					  ? $loader->sign($outPut, [ file_get_contents($priv_key_file), $password], 'X19oYWx0X2NvbXBpbGVyKCk7')
+					  ? $loader->sign($outPut, [ file_get_contents($priv_key_file), $password], 'X19oYWx0X2NvbXBpbGVyKCk7', 
+									 mt_rand(0, 9999999999999999).' '
+									 .mt_rand(0, 9999999999999999).' '
+									 .mt_rand(0, 9999999999999999))
 					  : $outPut;	
 			
 			
