@@ -188,7 +188,7 @@ if(empty($content)){
 
 
 	
-	
+	/*
 	  
 	$FloodProtection = new \frdl\security\floodprotection\FloodProtection($_SERVER['REQUEST_URI'], 60, 60);	
   if($_SERVER['REMOTE_ADDR'] !== $_SERVER['SERVER_ADDR'] && $FloodProtection->check($_SERVER['REMOTE_ADDR'])){
@@ -196,6 +196,8 @@ if(empty($content)){
  
  	 $content='Too Many Requests, please try again later!';
   }
+	*/
+	
 	
 	
    $classMaps = require $cacheFile;
