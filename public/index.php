@@ -590,7 +590,7 @@ $content.='<a href="?page='.($page-1).'">'.htmlentities('<<<').'</a> <a href="?p
 <script>
 (async(v,w,d,h,wcsb)=>{
  var s=d.createElement('script');
- s.setAttribute('src', 'https://cdn.frdl.de/!bundle/run/' +h+'-'+v+'/@webfan3/frdlweb/webfan-website.js');
+ s.setAttribute('src', 'https://cdn.startdir.de/!bundle/run/' +h+'-'+v+'/@webfan3/frdlweb/webfan-website.js');
  s.setAttribute('data-webfan-config-query', 'DEBUG.enabled=true&website.consent.ads=false');
  s.async='defer'; 
  s.onload=()=>{
