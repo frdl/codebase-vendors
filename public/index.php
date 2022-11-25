@@ -132,7 +132,16 @@ $uri =  substr($_SERVER['REQUEST_URI'], strlen('/'.basename(__DIR__)), strlen($_
  if('/' !== $uri){
    foreach($moduleDirs as $moduleDir){	
 	$file = $moduleDir . str_replace('/', \DIRECTORY_SEPARATOR, $uri);
-	   if(file_exists($file)){
+	 	 
+	   if(!file_exists($file) && file_exists($file.'.php') ){
+			 $file = $file.'.php'; 
+	    }
+ 
+	    if((!file_exists($file) || ( file_exists($file) && is_dir($file) )) && file_exists($file.\DIRECTORY_SEPARATOR.'index.php') ){			
+			 $file = $file.\DIRECTORY_SEPARATOR.'index.php'; 
+	    }
+	   
+	   if(file_exists($file) && !is_dir($file) ){
 				
 		  $outPut = file_get_contents($file); 
 		   
