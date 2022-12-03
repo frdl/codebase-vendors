@@ -54,4 +54,8 @@ interface AdvancedWebAppInterface extends WebAppInterface
   public function terminate(int $timelimit = null);
   public function exec(string | array $args, bool $needResultCode = false);
   public function isCLI(): bool;
+  public function devlog(string $message, $data = []);
+  public function log(string $type, string $message, string $loggerName = 'default');
+	
+  
 }
