@@ -56,6 +56,6 @@ interface AdvancedWebAppInterface extends WebAppInterface
   public function isCLI(): bool;
   public function devlog(string $message, $data = []);
   public function log(string $type, string $message, array $context = [], string $loggerName = 'default');
-	
+  public function isMethod(string $method, $classOrObject) : \stdclass;	
   
 }
