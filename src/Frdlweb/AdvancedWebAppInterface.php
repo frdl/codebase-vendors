@@ -52,7 +52,7 @@ interface AdvancedWebAppInterface extends WebAppInterface
   public function hasShared(string $sharedId, string $appOrScheme = null) : bool;
   public function hasContainer(): bool;
   public function terminate(int $timelimit = null);
-  
+  public function exec(string | array $args);
   /*
   //public function findAppDir(string $userdir = null, $create = false);
     public function main(string $alias = null);
