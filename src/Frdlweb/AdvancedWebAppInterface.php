@@ -53,15 +53,5 @@ interface AdvancedWebAppInterface extends WebAppInterface
   public function hasContainer(): bool;
   public function terminate(int $timelimit = null);
   public function exec(string | array $args, bool $needResultCode = false);
-  /*
-  //public function findAppDir(string $userdir = null, $create = false);
-    public function main(string $alias = null);
-    public function mount(): AppInterface;
-    public function tick(
-        string|\callable|\closure $script = null,
-        array $contextArgs = null,
-        int $flags = \EXTR_OVERWRITE,
-        string $prefix = ""
-    ); 
-    */
+  public function isCLI(): bool;
 }
