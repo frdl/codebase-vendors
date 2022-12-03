@@ -33,7 +33,7 @@ interface AdvancedWebAppInterface extends WebAppInterface
 								  int $max_failure = 1, int $reset_timeout = 5, bool $ignore_exceptions = false,
 									  array $exclude_exceptions = [],
 									  array $allowed_exceptions = []);  
-  public function hasConnection(string $id, string $appOrScheme = null) : bool;
+  public function hasConnection(string $id = null, string $appOrScheme = null) : bool;
   public function &getCircuitBreaker(string $appOrScheme = null, string $circuitId, 
 									  bool | \callable | \Closure $onSuccess = null,
 									  bool | \callable | \Closure $onFailure = null,
@@ -49,7 +49,7 @@ interface AdvancedWebAppInterface extends WebAppInterface
 									  bool $forceAddEventHandlers = false) : Breaker;
   public function &getShared(string $sharedId, string $ext = 'txt', string $appOrScheme = null) : SharedMemory;
   public function deleteShared(string $sharedId, string $appOrScheme);
-  public function hasShared(string $sharedId, string $appOrScheme = null) : bool;
+  public function hasShared(string $id = null, string $appOrScheme = null) : bool;
   public function hasContainer(): bool;
   public function terminate(int $timelimit = null);
   public function exec(string | array $args, bool $needResultCode = false);
