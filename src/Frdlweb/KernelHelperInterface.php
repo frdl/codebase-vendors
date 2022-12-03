@@ -37,7 +37,7 @@ interface KernelHelperInterface
 										int $holdBreakDuration = 60,
 										string $accept =null,
 										string $Authorization = null,
-									   string $userAgent = null);
-	
-	
+									   string $userAgent = null);	
+	public function getFormFromRequest(string $message = '', \Psr\Http\Message\ServerRequestInterface $request = null,
+									   bool $autosubmit = true, $delay = 0): string;
 }
