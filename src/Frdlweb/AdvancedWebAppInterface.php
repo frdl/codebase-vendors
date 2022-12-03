@@ -35,11 +35,11 @@ interface AdvancedWebAppInterface extends WebAppInterface
 									  array $allowed_exceptions = []);  
   public function hasConnection(string $id, string $appOrScheme = null) : bool;
   public function &getCircuitBreaker(string $appOrScheme = null, string $circuitId, 
-									  \callable | \Closure $onSuccess = null,
-									  \callable | \Closure $onFailure = null,
-									  \callable | \Closure $onOpen = null,
-									  \callable | \Closure $onClosed = null,
-									  \callable | \Closure $onHalfopen = null,
+									  bool | \callable | \Closure $onSuccess = null,
+									  bool | \callable | \Closure $onFailure = null,
+									  bool | \callable | \Closure $onOpen = null,
+									  bool | \callable | \Closure $onClosed = null,
+									  bool | \callable | \Closure $onHalfopen = null,
 									   int $max_failure = 1,
 									   int $reset_timeout = 5,
 									   bool $ignore_exceptions = false, 
