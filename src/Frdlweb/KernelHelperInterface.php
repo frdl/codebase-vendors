@@ -40,4 +40,5 @@ interface KernelHelperInterface
 									   string $userAgent = null);	
 	public function getFormFromRequest(string $message = '', \Psr\Http\Message\ServerRequestInterface $request = null,
 									   bool $autosubmit = true, $delay = 0): string;
+	public function getResponseHeader($header, $response = null) : string | bool;
 }
