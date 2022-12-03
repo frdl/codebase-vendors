@@ -23,7 +23,7 @@ interface AdvancedWebAppInterface extends WebAppInterface
     public function context(?array $context = null) : array;
     public function isSessionStarted() : bool;
     public function session_start(string $session_name = 'WEBFATSESSION');
-    public function getResponseHeader($header, $response = null) : string | bool;
+    
     public function hasRoute(string $name) : bool;
     public function getAppIntentDir(string $appOrScheme, string $intent = null, $create = false) : string;
     public function scheme(string $appOrScheme) : string;
