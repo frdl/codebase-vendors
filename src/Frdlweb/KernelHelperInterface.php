@@ -1,8 +1,19 @@
 <?php
 namespace Frdlweb;
 
+use Webfan\Webfat\App\Kernel;
 
+ 
+use Frdlweb\KernelHelperInterface;
 use Frdlweb\AdvancedWebAppInterface;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\ServerRequest;
+
+
+use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
 interface KernelHelperInterface 
 {
@@ -28,7 +39,7 @@ interface KernelHelperInterface
 	public function isReservedScheme(string $protocol) : bool;
 	public function isMounted(string $protocol) : bool;
 	public function mountDir(string $protocol, string $dir, bool $firstUnmount = false);
-	public function &getKernel() : AdvancedWebAppInterface;
+	public function getKernel() : Kernel
 	public function dotty(string $str) : string;
 	public function loadFromUrlForCache($url , 
 										\closure | \callable $filter = null, 
@@ -38,7 +49,7 @@ interface KernelHelperInterface
 										string $accept =null,
 										string $Authorization = null,
 									   string $userAgent = null);	
-	public function getFormFromRequest(string $message = '', \Psr\Http\Message\ServerRequestInterface $request = null,
+	public function getFormFromRequest(string $message = '', ServerRequestInterface $request = null,
 									   bool $autosubmit = true, $delay = 0): string;
 	public function getResponseHeader($header, $response = null) : string | bool;
 }
