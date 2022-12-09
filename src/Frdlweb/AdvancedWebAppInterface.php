@@ -8,6 +8,7 @@ use Fuz\Component\SharedMemory\SharedMemory;
 interface AdvancedWebAppInterface extends WebAppInterface
 {
   
+    public function emitter(string $action, string $appOrScheme = 'website') : \Webfan\App\EventModule;	
     public function getDir(string $type = null, $create = true) : string;
     public function getFile(string $path, string $type = null) : string;
     public function getStub(): ?StubHelperInterface;
