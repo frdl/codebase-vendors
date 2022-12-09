@@ -38,7 +38,7 @@ interface KernelHelperInterface
         public function end() :void;
 	public function isReservedScheme(string $protocol) : bool;
 	public function isMounted(string $protocol) : bool;
-	public function mountDir(string $protocol, string $dir, bool $firstUnmount = false);
+	public function mountDir(string $protocol, string | \callable | \Closure $dir, bool $firstUnmount = false);
 	public function getKernel() : Kernel;
 	public function dotty(string $str) : string;
 	public function loadFromUrlForCache($url , 
