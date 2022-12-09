@@ -35,7 +35,7 @@ interface KernelHelperInterface
 
 	];
   
-  
+        public function end() :void;
 	public function isReservedScheme(string $protocol) : bool;
 	public function isMounted(string $protocol) : bool;
 	public function mountDir(string $protocol, string $dir, bool $firstUnmount = false);
