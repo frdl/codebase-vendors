@@ -39,7 +39,7 @@ interface KernelHelperInterface
 	public function isReservedScheme(string $protocol) : bool;
 	public function isMounted(string $protocol) : bool;
 	public function mountDir(string $protocol, string | \callable | \Closure $dir, bool $firstUnmount = false);
-	public function getKernel(): \Frdlweb\AdvancedWebAppInterface;
+	//public function getKernel(): \Frdlweb\AdvancedWebAppInterface;
 	public function dotty(string $str) : string;
 	public function loadFromUrlForCache($url , 
 										\closure | \callable $filter = null, 
