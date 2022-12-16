@@ -122,6 +122,7 @@ $someDirs=[
 
  $moduleDirs = [
     __DIR__ . \DIRECTORY_SEPARATOR. '..'.  \DIRECTORY_SEPARATOR.'php-node_modules'.  \DIRECTORY_SEPARATOR,	
+    __DIR__ . \DIRECTORY_SEPARATOR. '..'. \DIRECTORY_SEPARATOR. '..'.  \DIRECTORY_SEPARATOR.'php-noddy_modules'.  \DIRECTORY_SEPARATOR,	
 ];
 
 $uri =  substr($_SERVER['REQUEST_URI'], strlen('/'.basename(__DIR__)), strlen($_SERVER['REQUEST_URI']) );	
