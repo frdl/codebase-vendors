@@ -35,6 +35,7 @@ interface KernelHelperInterface
 
 	];
   
+	public function group(string $idPrefix = '', bool $resolve = false, bool $asTree = false);
         public function end() :void;
 	public function isReservedScheme(string $protocol) : bool;
 	public function isMounted(string $protocol) : bool;
