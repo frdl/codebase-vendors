@@ -15,6 +15,9 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
+/*
+Implementation example/default: https://webfan.de/install/?source=Webfan\Webfat\App\KernelHelper
+*/
 interface KernelHelperInterface 
 {
   
@@ -34,8 +37,10 @@ interface KernelHelperInterface
         'compress.zlib',
 
 	];
-  
-	public function group(string $idPrefix = '', bool $resolve = false, bool $asTree = false);
+  	public function getModuleInfoById(string $id, string $group = 'config.modules');
+	public function getModuleInfoByName(string $name, string $group = 'config.modules');
+	public function findIn(string $column, string $search_value, string $group = '');
+	public function group(string $idPrefix = '', bool $resolve = false, bool $asTree = false, bool $asValues = true);
         public function end() :void;
 	public function isReservedScheme(string $protocol) : bool;
 	public function isMounted(string $protocol) : bool;
