@@ -37,6 +37,7 @@ interface KernelHelperInterface
         'compress.zlib',
 
 	];
+	public function route(string $name, array $params = []) : string | bool;
   	public function getModuleInfoById(string $id, string $group = 'config.modules');
 	public function getModuleInfoByName(string $name, string $group = 'config.modules');
 	public function findIn(string $column, string $search_value, string $group = '');
