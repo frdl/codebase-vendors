@@ -38,7 +38,7 @@ interface KernelHelperInterface
 
 	];
 	
-	public function echo(array | string $str, string | bool $eol = true);
+	public function out(array | string $str, string | bool $eol = true);
 	public function route(string $name, array $params = []) : string | bool;
   	public function getModuleInfoById(string $id, string $group = 'config.modules');
 	public function getModuleInfoByName(string $name, string $group = 'config.modules');
