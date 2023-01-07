@@ -42,8 +42,8 @@ interface KernelHelperInterface
 	
 	public function out(array | string $str, string | bool $eol = true);
 	public function route(string $name, array $params = [], bool $getPath = true) : string | bool | Route;
-  	public function getModuleInfoById(string $id, string $group = 'config.modules');
-	public function getModuleInfoByName(string $name, string $group = 'config.modules');
+  	public function getModuleInfoById(string $id, string $group = Kernel::MODULES_INFO_CONTAINER_ID);
+	public function getModuleInfoByName(string $name, string $group = Kernel::MODULES_INFO_CONTAINER_ID);
 	public function findIn(string $column, string $search_value, string $group = '');
 	public function group(string $idPrefix = '', bool $resolve = false, bool $asTree = false, bool $asValues = true);
         public function end() :void;
