@@ -15,6 +15,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
+use League\Route\Route;
+
 /*
 Implementation example/default: https://webfan.de/install/?source=Webfan\Webfat\App\KernelHelper
 */
@@ -39,7 +41,7 @@ interface KernelHelperInterface
 	];
 	
 	public function out(array | string $str, string | bool $eol = true);
-	public function route(string $name, array $params = []) : string | bool;
+	public function route(string $name, array $params = [], bool $getPath = true) : string | bool | Route;
   	public function getModuleInfoById(string $id, string $group = 'config.modules');
 	public function getModuleInfoByName(string $name, string $group = 'config.modules');
 	public function findIn(string $column, string $search_value, string $group = '');
