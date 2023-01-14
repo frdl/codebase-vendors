@@ -3,7 +3,10 @@ namespace Frdlweb;
 
 use frdlweb\AppInterface;
 use Eljam\CircuitBreaker\Breaker;
-use Fuz\Component\SharedMemory\SharedMemory;
+//use Fuz\Component\SharedMemory\SharedMemory;
+use Webfan\Webfat\App\SharedMemory;
+//use Fuz\Component\SharedMemory\Storage\StorageFile;
+use Webfan\Webfat\App\SharedMemoryStorageFile as StorageFile;
 
 interface AdvancedWebAppInterface extends WebAppInterface
 {
