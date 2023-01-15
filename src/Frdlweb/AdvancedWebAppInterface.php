@@ -1,12 +1,50 @@
 <?php
 namespace Frdlweb;
 
-use frdlweb\AppInterface;
-use Eljam\CircuitBreaker\Breaker;
+use Webfan\Webfat\App\ConfigContainer;
+use Webfan\Webfat\App\ContainerCollection;
+# use frdl\ContainerCollectionV2 as ContainerCollection;
+
+
+use Configula\ConfigFactory as Config;
+use Configula\ConfigValues as Configuration;
+use Configula\Loader;
+use Doctrine\Common\Cache\FilesystemCache;
+//use Eljam\CircuitBreaker\Breaker
+use Webfan\Webfat\App\CircuitBreaker as Breaker;
+use Eljam\CircuitBreaker\Event\CircuitEvents;
+//use Eljam\CircuitBreaker\Event\CircuitEvent as Event;
 //use Fuz\Component\SharedMemory\SharedMemory;
 use Webfan\Webfat\App\SharedMemory;
 //use Fuz\Component\SharedMemory\Storage\StorageFile;
 use Webfan\Webfat\App\SharedMemoryStorageFile as StorageFile;
+
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\ServerRequest;
+use IvoPetkov\HTML5DOMDocument;
+use Webfan\Webfat\HTMLServerComponentsCompiler;
+use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+use Symfony\Component\EventDispatcher\Event;
+use Webfan\Webfat\Console;
+use Frdlweb\AppInterface;
+use frdlweb\StubHelperInterface;
+use Frdlweb\AdvancedWebAppInterface;
+use LogicException;
+
+use Spatie\Once\Backtrace as SpatieBacktrace;
+use Spatie\Once\Cache as SpatieCache;
+
+# use Monolog\Level as LogLevel;
+use Psr\Log\LogLevel;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler as LoggerStreamHandler;
+use Psr\Log\LoggerInterface;
+use Monolog\Registry as LoggerRegistry;
+
+use Webfan\Webfat\Filesystems\PathResolvingFilesystem as StreamHandler;
 
 interface AdvancedWebAppInterface extends WebAppInterface
 {
