@@ -99,7 +99,8 @@
 	"rosell-dk/locate-binaries" : "*",
 	"rosell-dk/htaccess-capability-tester" : "*",
 	"rosell-dk/exec-with-fallback" : "*",
-	"league/commonmark" : "*"
+	"league/commonmark" : "*",
+	"nelexa/zip" : ">=4.0.2"
   },	  
   "autoload": {
     "classmap" : ["src/"],
