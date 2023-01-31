@@ -53,7 +53,12 @@
             "url": "https://github.com/inverisOSS/tiny-php-queue/archive/refs/tags/1.0.0.zip",
             "path": "./../../../modules/inverisoss/tiny-php-queue",
             "ignore": [".*"]
-        }    
+        }
+      "nelexa/zip": {
+            "url": "https://github.com/Ne-Lexa/php-zip/archive/refs/tags/4.0.1.zip",
+            "path": "./../../../modules/nelexa/zip",
+            "ignore": [".*"]
+        }       
     }
 },
 "minimum-stability":"dev",
@@ -68,7 +73,7 @@
 	 },
   "require" : {
 	"php": ">=8.0",
-	"frdl/webfan" : "*", 	  
+	"frdl/webfan" : "*", 	
 	"composer/composer" :"*",		
 	"vendor-patch/autoload-package" :"*",	
 	"friendsofphp/proxy-manager-lts":"*",     
@@ -100,7 +105,9 @@
 	"rosell-dk/htaccess-capability-tester" : "*",
 	"rosell-dk/exec-with-fallback" : "*",
 	"league/commonmark" : "*",
-	"nelexa/zip" : ">=4.0.2"
+        "symfony/finder": "*",
+        "psr/http-message": "*",
+	"relay/relay": "~2.0"
   },	  
   "autoload": {
     "classmap" : ["src/"],
@@ -111,6 +118,7 @@
   },
   "suggest" : {
      "frdl/project" : "Frdlweb project template",
-     "webfan3/website" : "Default Start/Installer Template"
+     "webfan3/website" : "Default Start/Installer Template",
+     "frdlweb/webfat" : "...if you want to build websites or load the webfat stub helper classes... (this could produce issues on codebase server!)"
   }
 }
