@@ -84,8 +84,7 @@
   "require" : {
 	"php": ">=8.0",
 	"frdl/webfan" : "*", 	
-	"composer/composer" :"*",		
-	"vendor-patch/autoload-package" :"*",	
+	"composer/composer" :"*",	
 	"friendsofphp/proxy-manager-lts":"*",     
 	"yosymfony/resource-watcher" : "*",			 
 	"sensiolabs/ansi-to-html" : "*",
