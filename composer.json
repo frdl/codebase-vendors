@@ -44,6 +44,11 @@
         "path": "./../../../modules/frdl/array-helper",
         "ignore": [".*"]
       },
+      "frdl/proxy": {
+        "url": "https://github.com/frdl/proxy/archive/refs/heads/master.zip",
+        "path": "./../../../modules/frdl/proxy",
+        "ignore": [".*"]
+      },
       "vendor-patch/psecio.secure_dotenv": {
         "url": "https://github.com/vendor-patch/secure_dotenv/archive/refs/heads/master.zip",
         "path": "./../../../modules/vendor-patch/psecio.secure_dotenv",
@@ -53,12 +58,17 @@
             "url": "https://github.com/inverisOSS/tiny-php-queue/archive/refs/tags/1.0.0.zip",
             "path": "./../../../modules/inverisoss/tiny-php-queue",
             "ignore": [".*"]
-        }
+        },
       "nelexa/zip": {
             "url": "https://github.com/Ne-Lexa/php-zip/archive/refs/tags/4.0.1.zip",
             "path": "./../../../modules/nelexa/zip",
             "ignore": [".*"]
-        }       
+        },
+      "jenssegers/proxy": {
+            "url": "https://github.com/jenssegers/php-proxy/archive/refs/tags/v3.1.0.zip",
+            "path": "./../../../modules/jenssegers/proxy",
+            "ignore": [".*"]
+        }          
     }
 },
 "minimum-stability":"dev",
@@ -107,7 +117,8 @@
 	"league/commonmark" : "*",
         "symfony/finder": "*",
         "psr/http-message": "*",
-	"relay/relay": "~2.0"
+	"relay/relay": "~2.0",
+	"laminas/laminas-httphandlerrunner" : ">=2.5.0"
   },	  
   "autoload": {
     "classmap" : ["src/"],
