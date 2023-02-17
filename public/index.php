@@ -2,6 +2,8 @@
 use Nette\Utils\Helpers;
 use Melbahja\Http2\Pusher;
 
+use function Webfan\Codebase\Server\init;
+
 //broken version quick patch
 if(isset($_GET['version']) && 'latest' !== $_GET['version']){
 	unset($_GET['version']);
@@ -37,9 +39,9 @@ function cleanArray($didYouMeans){
 $content='';
 
 require __DIR__.'/../vendor/autoload.php';
-  //ClassMapsLoaderBundle.php
+ 
 
-
+init();
 
 $pub_key_file = __DIR__ . ''.  \DIRECTORY_SEPARATOR. '..' .  \DIRECTORY_SEPARATOR. '.api-keys'.  \DIRECTORY_SEPARATOR. 'pub.key';
 $priv_key_file = __DIR__ . ''.  \DIRECTORY_SEPARATOR. '..'.  \DIRECTORY_SEPARATOR. '.api-keys'.  \DIRECTORY_SEPARATOR. 'priv.key';
@@ -210,13 +212,55 @@ if(empty($content)){
 	
 	
 	
-   $classMaps = require $cacheFile;
-
+	$ExportHelper = new \Webfan\Codebase\Server\BundleExportHelper($loader,
+								       file_get_contents($pub_key_file),
+								       file_get_contents($priv_key_file),
+								       $password);
 	
-   $Helper = new \Wehowski\Helpers\ArrayHelper($classMaps);
-   $classes=$Helper->keys();
+	
+   $classMaps = $ExportHelper->classmap(true, true); 
+   $classes=$ExportHelper->classes(true, true);		
   
 
+	
+	
+	
+//deprecatipons @ToDo: better API e.g. PSR-15	
+if(empty($content) && !isset($_REQUEST['bundle'])  && isset($_REQUEST['source']) && '*'!==$_REQUEST['source']){
+   // $file =  $ExportHelper->classfile($source);
+	
+	$classCode = $ExportHelper->code($_REQUEST['source'],
+									 isset($_REQUEST['version']) ? $_REQUEST['version'] : null,
+									true,
+									(
+										(isset($_SERVER['HTTP_X_SOURCE_ENCODING']) && 'b64' === $_SERVER['HTTP_X_SOURCE_ENCODING'])
+			                        ||  (isset($_REQUEST['source-encoding']) && 'b64' === $_REQUEST['source-encoding'])
+									)
+									);
+	if(false!==$classCode){
+		
+		$outPut = $classCode;
+		header('Content-Type: text/plain');
+		   
+			$hash_check = strlen($outPut).'.'.sha1($outPut);
+	    $userHash_check = sha1(((isset($_REQUEST['salt']))?$_REQUEST['salt']:null) .$hash_check);	
+		header('X-Content-Hash: '.$hash_check);
+		header('X-User-Hash: '.$userHash_check);
+			
+		header('Content-Md5: '.md5($outPut));
+		header('Content-Sha1: '.sha1($outPut));
+			
+		echo $outPut;
+	  die();
+	}//$classCode
+}
+	
+	
+	
+	
+	
+	
+//deprecatipons @ToDo: better API e.g. PSR-15	
 if(isset($_GET['bundle']) && !isset($_GET['source'])){
 	$_GET['source'] = $_GET['bundle'];
 }elseif(isset($_GET['bundle']) && isset($_GET['source'])){
