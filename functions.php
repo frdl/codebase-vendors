@@ -17,11 +17,7 @@ namespace Webfan\Codebase\Server {
      
      //patches
      \frdl\implementation\psr4\RemoteAutoloaderApiClient::getInstance('https://webfan.de/install/stable/?source={{class}}&salt={{salt}}', true)       
-         ->withClassmap([
-           \Webfan\Codebase\Server\BundleExportHelper::class => 'https://webfan.de/install/?source=Webfan\Codebase\Server\BundleExportHelper&salt=${salt}',
-           \frdl\Proto::class => 'https://webfan.de/install/?source=frdl\Proto&salt=${salt}',
-       ]); 
-     
+            ->withClassmapFor('frdl/codebase', 'latest', \PHP_VERSION, 24 * 60 * 60);
      
  }   
     
