@@ -8,7 +8,7 @@ use Frdlweb\KernelHelperInterface;
 use Frdlweb\AdvancedWebAppInterface;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\ServerRequest;
-
+use Frdlweb\WebAppInterface;
 
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -50,7 +50,7 @@ interface KernelHelperInterface
 	public function isReservedScheme(string $protocol) : bool;
 	public function isMounted(string $protocol) : bool;
 	public function mountDir(string $protocol, string | \callable | \Closure $dir, bool $firstUnmount = false);
-	//public function getKernel(): \Frdlweb\AdvancedWebAppInterface;
+	//public function getKernel(): WebAppInterface;
 	public function dotty(string $str) : string;
 	public function loadFromUrlForCache($url , 
 										\closure | \callable $filter = null, 
