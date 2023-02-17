@@ -5,6 +5,7 @@ namespace Frdlweb;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 
 interface WebAppInterface extends RequestHandlerInterface
