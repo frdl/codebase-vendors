@@ -28,55 +28,196 @@
     ]
 },
 "extra" : {
-	 "compile-mode": "all",
+	
+   "compile-mode": "all",     
+    "foxy": true,
+    
+        "webfantize": {
+	   "flavor" : {
+               "1.3.6.1.4.1.37553.8.1.8.1.575874" : true,
+               "1.3.6.1.4.1.37553.8.1.8.8.11.1" : true,
+	       "1.3.6.1.4.1.37553.8.1.8.1.575874" : false
+	   }
+	},
+        "installer-types": [
+            "frdl-extension",
+            "frdl-theme",
+            "frdl-module",
+            "frdl-httpdocs",
+            "frdl-public",         
+            "webfan-package",
+            "webfan-extension",
+            "webfan-theme",
+            "webfan-module",
+            "webfan-httpdocs",
+            "webfan-public",         
+            "vendor",
+            "npm-package",
+            "node-module",
+            "project",
+	    "automad-package"
+        ],
+        "installer-paths": {
+            "packages\/{$vendor}\/{$name}\/": [
+                "type:automad-package"
+            ],	
+            "modules\/frdl\/{$vendor}.{$name}\/": [
+                "type:frdl-module"
+            ],
+            "modules\/webfan\/{$vendor}\/{$name}\/": [
+                "type:frdl-module"
+            ],
+            "modules\/packages\/{$vendor}\/{$name}\/": [
+                "type:frdl-package"
+            ],			
+
+            "modules\/extensions\/{$name}\/{$vendor}~{$name}\/": [
+                "type:frdl-extension"
+            ],
+            "modules\/themes\/{$name}\/{$vendor}~{$name}\/": [
+                "type:frdl-theme"
+            ],		
+            "webfantized\/{$name}\/{$vendor}\/": [
+                "type:webfan-feature"
+            ],
+            "config\/{$name}\/{$vendor}\/": [
+                "type:frdl-config"
+            ],
+            "service\/{$name}\/{$vendor}\/": [
+                "type:frdl-service"
+            ],
+            "~/.webfan/shared\/{$name}\/{$vendor}\/": [
+                "type:frdl-shared"
+            ],
+            "userland\/": [
+                "type:webfan-userland"
+            ],
+            "{$webroot}\/": [
+                "type:webfan-webfiles"
+            ],
+            "{$webroot}\/": [
+                "type:frdl-public"
+            ],
+            "public\/": [
+                "type:frdl-httpdocs"
+            ],
+            "vendor\/frdlweb\/{$vendor}\/{$name}\/": [
+                "vendor:frdl",
+                "vendor:frdlweb",
+                "vendor:webfan",
+                "vendor:webfan3"
+            ],
+            "./": [
+                "type:frdl-patch"
+            ],
+            "{$workspace}\/node_modules\/{$vendor}\/{$name}\/": [
+                "type:node-module"
+            ],
+            "node_modules\/{$vendor}.{$name}\/": [
+                "type:npm-package"
+            ],
+            "..\/{$vendor}~{$name}~project\/": [
+                "type:project"
+            ]
+        },
+        "dependency-scripts": {
+            "run": true,
+            "trust": [		
+                "airmad\/*",    
+                "symfony",
+                "symfony\/symfony",
+                "symfony\/console",
+                "frdl\/console",
+                "frdl\/*",
+                "webfan3\/*",
+                "wehowski\/*"
+            ],
+            "exclude": [],
+            "types": [
+                "frdl-extension",
+                "frdl-theme",
+                "frdl-module",
+                "frdl-shared",
+                "frdl-public",
+                "webfan-extension",
+                "webfan-theme",
+                "webfan-module",
+                "webfan-package",
+                "frdl-service",
+                "frdl-config",
+                "webfan-feature",
+                "webfan-webfiles",
+                "webfan-userland",
+                "frdl-patch",
+                "automad-package"
+            ]
+        },
+        "config-plugin-output-dir": "config"
+	
 	 "webfan" : {
 		 "install" : {
 		     
 		 }
 	 }, 
    "downloads": {
-              "*": {
-        "path": "./../../../modules/{$id}",
+     "*": {
+        "path": "./../../../vendor/{$id}",
         "ignore": ["test", "tests", "doc", "docs", ".*"]
       },
       "frdl/array-helper": {
         "url": "https://github.com/frdl/array-helper/archive/refs/heads/main.zip",
-        "path": "./../../../modules/frdl/array-helper",
+        "path": "./../../../vendor/frdl/array-helper",
         "ignore": [".*"]
       },
       "frdl/proxy": {
         "url": "https://github.com/frdl/proxy/archive/refs/heads/master.zip",
-        "path": "./../../../modules/frdl/proxy",
+        "path": "./../../../vendor/frdl/proxy",
         "ignore": [".*"]
       },
       "vendor-patch/psecio.secure_dotenv": {
         "url": "https://github.com/vendor-patch/secure_dotenv/archive/refs/heads/master.zip",
-        "path": "./../../../modules/vendor-patch/psecio.secure_dotenv",
+        "path": "./../../../vendor/vendor-patch/psecio.secure_dotenv",
         "ignore": [".*"]
       },
       "inverisoss/tiny-php-queue": {
             "url": "https://github.com/inverisOSS/tiny-php-queue/archive/refs/tags/1.0.0.zip",
-            "path": "./../../../modules/inverisoss/tiny-php-queue",
+            "path": "./../../../vendor/inverisoss/tiny-php-queue",
             "ignore": [".*"]
         },
       "nelexa/zip": {
             "url": "https://github.com/Ne-Lexa/php-zip/archive/refs/tags/4.0.1.zip",
-            "path": "./../../../modules/nelexa/zip",
+            "path": "./../../../vendor/nelexa/zip",
             "ignore": [".*"]
         },
       "jenssegers/proxy": {
             "url": "https://github.com/jenssegers/php-proxy/archive/refs/tags/v3.1.0.zip",
-            "path": "./../../../modules/jenssegers/proxy",
+            "path": "./../../../vendor/jenssegers/proxy",
             "ignore": [".*"]
         }          
     }
 },
 "minimum-stability":"dev",
     "config": {
- 
+         "bin-dir": "./bin",
         "preferred-install": "auto",
         "cache-files-ttl": 3600,
-        "prepend-autoloader": true
+        "prepend-autoloader": true,			        
+        "allow-plugins": {	   
+            "airmad/*": true,
+            "civicrm/*": true,
+            "composer/*": true,
+            "frdl/*": true,
+            "webfan3/*": true,
+	    "kylekatarnls/update-helper": true
+        },
+        "frdl": {
+            "webfantize": [],
+            "level": "level-*"
+        },
+        "webfan-website" : {
+            "webroot" : "public",
+            "root" : "."
+        }	    
     },  
 	 "require-dev" : {		 
 
