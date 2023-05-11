@@ -73,7 +73,7 @@
 			"config\/{$name}\/{$vendor}\/": [
 				"type:frdl-config"
 			],
-			"service\/{$name}\/{$vendor}\/": [
+			"modules\/service\/{$name}\/{$vendor}\/": [
 				"type:frdl-service"
 			],
 			"~/.webfan/shared\/{$name}\/{$vendor}\/": [
@@ -216,7 +216,7 @@
 		"friendsofphp/proxy-manager-lts": "*",
 		"yosymfony/resource-watcher": "*",
 		"sensiolabs/ansi-to-html": "*",
-		"teqneers/shamir": "*",
+
 		"frdl/php-floodprotection": "*",
 		"frdl/remote-psr4": "*",
 		"frdl/event-module": "*",
@@ -231,7 +231,7 @@
 		"spatie/temporary-directory": "*",
 		"nikic/php-parser": "*",
 		"hellogerard/jobby": "*",
-		"php-di/php-di": "*",
+
 		"caseyamcl/configula": "*",
 		"karelwintersky/monolog-pdo-handler": "*",
 		"catfan/medoo": "*",
@@ -241,12 +241,59 @@
 		"rosell-dk/locate-binaries": "*",
 		"rosell-dk/htaccess-capability-tester": "*",
 		"rosell-dk/exec-with-fallback": "*",
-		"league/commonmark": "*",
+
 		"symfony/finder": "*",
 		"psr/http-message": "*",
+
+		"laminas/laminas-httphandlerrunner": ">=2.5.0",
+
+		"roave/security-advisories": "dev-master",
+		"frdl/auth": ">=0.0.3",
+		"frdl/cms": ">=0.0.2",
+		"rosell-dk/image-mime-type-guesser": "^0.3",
+		"league/commonmark": "*",
+		"mustangostang/spyc": "^0.6",
+		"minicli/minicli": "*",
+		"league/flysystem-sftp": "*",
+		"league/flysystem-webdav": "*",
+		"league/flysystem-ziparchive": "*",
+		"slim/slim": "*",
+		"vlucas/phpdotenv": "*",
+		"php-vfs/php-vfs": "*",
+		"brzuchal/filesystem-stream-wrapper": "*",
+		"ivopetkov/html5-dom-document-php": "*",
+		"ivopetkov/html-server-components-compiler": ">=1.1.0",
+		"fusio/sdk": "*",
+		"altorouter/altorouter": "*",
+		"league/html-to-markdown": "*",
+		"league/pipeline": "*",
+		"commonjs/commonjs": "*",
+		"robthree/twofactorauth": "*",
+		"guzzlehttp/psr7": "*",
+		"phpactor/path-finder": "*",
+		"uma/json-rpc": "*",
+		"phpseclib/phpseclib": "*",
+		"m2mtech/flysystem-stream-wrapper": "*",
+		"php-di/invoker": "*",
+		"mirazmac/php-requirements-checker": "*",
+		"mirazmac/dotenvwriter": "*",
+		"league/route": ">=5.1.2",
+		"wmde/php-vuejs-templating": "*",
+		"php-di/php-di": "6.4.0",
+		"ocramius/proxy-manager": "*",
+		"spatie/once": "*",
+		"roave/better-reflection": "*",
+		"appstract/php-hostsfile": "*",
+		"joomla/keychain": "~2.0",
+		"landrok/activitypub": "*",
+		"delirehberi/webfinger": "*",
 		"relay/relay": "~2.0",
-		"laminas/laminas-httphandlerrunner": ">=2.5.0"
+		"workerman/phpsocket.io": "*",
+		"teqneers/shamir": "*",
+		"blake-gardner/mac-address": "*",
+		"ggergo/enum": "*"
 	},
+
 	"autoload": {
 		"classmap": ["src/"],
 		"psr-4": {
