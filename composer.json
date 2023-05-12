@@ -1,5 +1,5 @@
 {
-	"name": "frdl/codebase",
+	"name": "frdl/codebase-vendors",
 	"description": "Codebase API related packages...",
 	"license": ["MIT"],
 	"homepage": "https://webfan.de/install/",
@@ -7,204 +7,23 @@
 		"name": "Till Wehowski",
 		"email": "software@frdl.de"
 	}],
-
+        "type": "webfan-vendor",
 	"scripts": {
 		"UNCOMMENT_IF_pre-install-cmd": [
 			"-d memory_limit=-1 composer self-update --2"
 		],
-		"post-root-package-install": [
+		"UNCOMMENT_IF_post-root-package-install": [
 			"php-legal-licenses generate --hide-version"
 		],
-		"post-create-project-cmd": [
+		"UNCOMMENT_IF_post-create-project-cmd": [
 			"php-legal-licenses generate --hide-version"
 		],
-		"post-install-cmd": [
+		"UNCOMMENT_IF_post-install-cmd": [
 			"php-legal-licenses generate --hide-version"
 		],
-		"post-update-cmd": [
+		"UNCOMMENT_IF_post-update-cmd": [
 			"php-legal-licenses generate --hide-version"
 		]
-	},
-	"extra": {
-
-		"compile-mode": "all",
-		"foxy": true,
-		"installer-types": [
-			"frdl-extension",
-			"frdl-theme",
-			"frdl-module",
-			"frdl-httpdocs",
-			"frdl-public",
-			"webfan-package",
-			"webfan-extension",
-			"webfan-theme",
-			"webfan-module",
-			"webfan-httpdocs",
-			"webfan-public",
-			"vendor",
-			"npm-package",
-			"node-module",
-			"project",
-			"automad-package"
-		],
-		"installer-paths": {
-			"packages\/{$vendor}\/{$name}\/": [
-				"type:automad-package"
-			],
-			"modules\/frdl\/{$vendor}.{$name}\/": [
-				"type:frdl-module"
-			],
-			"modules\/webfan\/{$vendor}\/{$name}\/": [
-				"type:frdl-module"
-			],
-			"modules\/packages\/{$vendor}\/{$name}\/": [
-				"type:frdl-package"
-			],
-
-			"modules\/extensions\/{$name}\/{$vendor}~{$name}\/": [
-				"type:frdl-extension"
-			],
-			"modules\/themes\/{$name}\/{$vendor}~{$name}\/": [
-				"type:frdl-theme"
-			],
-			"webfantized\/{$name}\/{$vendor}\/": [
-				"type:webfan-feature"
-			],
-			"config\/{$name}\/{$vendor}\/": [
-				"type:frdl-config"
-			],
-			"modules\/service\/{$name}\/{$vendor}\/": [
-				"type:frdl-service"
-			],
-			"~/.webfan/shared\/{$name}\/{$vendor}\/": [
-				"type:frdl-shared"
-			],
-			"userland\/": [
-				"type:webfan-userland"
-			],
-			"{$webroot}\/": [
-				"type:webfan-webfiles"
-			],
-			"public\/": [
-				"type:frdl-httpdocs"
-			],
-			"vendor\/frdlweb\/{$vendor}\/{$name}\/": [
-				"vendor:frdl",
-				"vendor:frdlweb",
-				"vendor:webfan",
-				"vendor:webfan3"
-			],
-			"./": [
-				"type:frdl-patch"
-			],
-			"{$workspace}\/node_modules\/{$vendor}\/{$name}\/": [
-				"type:node-module"
-			],
-			"node_modules\/{$vendor}.{$name}\/": [
-				"type:npm-package"
-			],
-			"..\/{$vendor}~{$name}~project\/": [
-				"type:project"
-			]
-		},
-		"dependency-scripts": {
-			"run": true,
-			"trust": [
-				"airmad\/*",
-				"symfony",
-				"symfony\/symfony",
-				"symfony\/console",
-				"frdl\/console",
-				"frdl\/*",
-				"webfan3\/*",
-				"wehowski\/*"
-			],
-			"exclude": [],
-			"types": [
-				"frdl-extension",
-				"frdl-theme",
-				"frdl-module",
-				"frdl-shared",
-				"frdl-public",
-				"webfan-extension",
-				"webfan-theme",
-				"webfan-module",
-				"webfan-package",
-				"frdl-service",
-				"frdl-config",
-				"webfan-feature",
-				"webfan-webfiles",
-				"webfan-userland",
-				"frdl-patch",
-				"automad-package"
-			]
-		},
-		"config-plugin-output-dir": "config",
-
-		"webfan": {
-			"install": {
-
-			}
-		},
-		"downloads": {
-			"*": {
-				"path": "./../../../vendor/{$id}",
-				"ignore": ["test", "tests", "doc", "docs", ".*"]
-			},
-			"frdl/array-helper": {
-				"url": "https://github.com/frdl/array-helper/archive/refs/heads/main.zip",
-				"path": "./../../../vendor/frdl/array-helper",
-				"ignore": [".*"]
-			},
-			"frdl/proxy": {
-				"url": "https://github.com/frdl/proxy/archive/refs/heads/master.zip",
-				"path": "./../../../vendor/frdl/proxy",
-				"ignore": [".*"]
-			},
-			"vendor-patch/psecio.secure_dotenv": {
-				"url": "https://github.com/vendor-patch/secure_dotenv/archive/refs/heads/master.zip",
-				"path": "./../../../vendor/vendor-patch/psecio.secure_dotenv",
-				"ignore": [".*"]
-			},
-			"inverisoss/tiny-php-queue": {
-				"url": "https://github.com/inverisOSS/tiny-php-queue/archive/refs/tags/1.0.0.zip",
-				"path": "./../../../vendor/inverisoss/tiny-php-queue",
-				"ignore": [".*"]
-			},
-			"nelexa/zip": {
-				"url": "https://github.com/Ne-Lexa/php-zip/archive/refs/tags/4.0.1.zip",
-				"path": "./../../../vendor/nelexa/zip",
-				"ignore": [".*"]
-			},
-			"jenssegers/proxy": {
-				"url": "https://github.com/jenssegers/php-proxy/archive/refs/tags/v3.1.0.zip",
-				"path": "./../../../vendor/jenssegers/proxy",
-				"ignore": [".*"]
-			}
-		}
-	},
-	"minimum-stability": "dev",
-	"config": {
-		"bin-dir": "./bin",
-		"preferred-install": "auto",
-		"cache-files-ttl": 3600,
-		"prepend-autoloader": true,
-		"allow-plugins": {
-			"airmad/*": true,
-			"civicrm/*": true,
-			"composer/*": true,
-			"frdl/*": true,
-			"webfan3/*": true,
-			"kylekatarnls/update-helper": true
-		},
-		"frdl": {
-			"webfantize": [],
-			"level": "level-*"
-		},
-		"webfan-website": {
-			"webroot": "public",
-			"root": "."
-		}
 	},
 	"require-dev": {
 
@@ -215,13 +34,16 @@
 		"composer/composer": "*",
 		"friendsofphp/proxy-manager-lts": "*",
 		"yosymfony/resource-watcher": "*",
+		"comcast/php-legal-licenses": "*",
+		
+		
 		"sensiolabs/ansi-to-html": "*",
 
 		"frdl/php-floodprotection": "*",
 		"frdl/remote-psr4": "*",
 		"frdl/event-module": "*",
 		"webfan3/php-easy-breaker": ">=0.3.6",
-		"comcast/php-legal-licenses": "*",
+		
 		"ninsuo/php-shared-memory": "*",
 		"nette/utils": "*",
 		"nette/caching": "*",
@@ -298,10 +120,10 @@
 		"classmap": ["src/"],
 		"psr-4": {
 
-		},
-		"files": ["functions.php"]
+		}
 	},
 	"suggest": {
+		"frdl/codebase": "Frdlweb (remote) source code server",
 		"frdl/project": "Frdlweb project template",
 		"webfan3/website": "Default Start/Installer Template",
 		"frdlweb/webfat": "...if you want to build websites or load the webfat stub helper classes... (this could produce issues on codebase server!)"
