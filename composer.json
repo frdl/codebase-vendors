@@ -32,7 +32,7 @@
 				"ignore": ["test", "tests", "doc", "docs", ".*"]
 			},
 			"ggergo/enum": {
-				"url": "https://github.com/ggergo/enum/archive/refs/heads/main.zip",
+				"url": "https://github.com/ggergo/enum/archive/refs/heads/master.zip",
 				"path": "./../../../vendor/ggergo/enum",
 				"ignore": [".*"]
 			}
