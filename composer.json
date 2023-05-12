@@ -25,8 +25,18 @@
 			"php-legal-licenses generate --hide-version"
 		]
 	},
-	"require-dev": {
-
+	"extra": {
+		"downloads": {
+			"*": {
+				"path": "./../../../vendor/{$id}",
+				"ignore": ["test", "tests", "doc", "docs", ".*"]
+			},
+			"ggergo/enum": {
+				"url": "https://github.com/ggergo/enum/archive/refs/heads/main.zip",
+				"path": "./../../../vendor/ggergo/enum",
+				"ignore": [".*"]
+			}
+		}
 	},
 	"require": {
 		"php": ">=8.0",
@@ -112,8 +122,7 @@
 		"relay/relay": "~2.0",
 		"workerman/phpsocket.io": "*",
 		"teqneers/shamir": "*",
-		"blake-gardner/mac-address": "*",
-		"ggergo/enum": "*"
+		"blake-gardner/mac-address": "*"
 	},
 
 	"autoload": {
