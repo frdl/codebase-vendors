@@ -7,37 +7,7 @@
 		"name": "Till Wehowski",
 		"email": "software@frdl.de"
 	}],
-        "type": "webfan-vendor",
-	"scripts": {
-		"UNCOMMENT_IF_pre-install-cmd": [
-			"-d memory_limit=-1 composer self-update --2"
-		],
-		"UNCOMMENT_IF_post-root-package-install": [
-			"php-legal-licenses generate --hide-version"
-		],
-		"UNCOMMENT_IF_post-create-project-cmd": [
-			"php-legal-licenses generate --hide-version"
-		],
-		"UNCOMMENT_IF_post-install-cmd": [
-			"php-legal-licenses generate --hide-version"
-		],
-		"UNCOMMENT_IF_post-update-cmd": [
-			"php-legal-licenses generate --hide-version"
-		]
-	},
-	"extra": {
-		"downloads": {
-			"*": {
-				"path": "./../../../vendor/{$id}",
-				"ignore": ["test", "tests", "doc", "docs", ".*"]
-			},
-			"ggergo/enum": {
-				"url": "https://github.com/ggergo/enum/archive/refs/heads/master.zip",
-				"path": "./../../../vendor/ggergo/enum",
-				"ignore": [".*"]
-			}
-		}
-	},
+        "type": "metapackage",
 	"require": {
 		"php": ">=8.0",
 		"frdl/webfan": "*",
@@ -123,18 +93,5 @@
 		"workerman/phpsocket.io": "*",
 		"teqneers/shamir": "*",
 		"blake-gardner/mac-address": "*"
-	},
-
-	"autoload": {
-		 
-		"psr-4": {
-
-		}
-	},
-	"suggest": {
-		"frdl/codebase": "Frdlweb (remote) source code server",
-		"frdl/project": "Frdlweb project template",
-		"webfan3/website": "Default Start/Installer Template",
-		"frdlweb/webfat": "...if you want to build websites or load the webfat stub helper classes... (this could produce issues on codebase server!)"
 	}
 }
