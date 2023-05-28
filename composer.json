@@ -64,7 +64,7 @@
 		"php-vfs/php-vfs": "*",
 		"brzuchal/filesystem-stream-wrapper": "*",
 		"ivopetkov/html5-dom-document-php": "*",
-		"ivopetkov/html-server-components-compiler": ">=1.1.0",
+		"ivopetkov/html-server-components-compiler": ">=1.2.0",
 		"fusio/sdk": "*",
 		"altorouter/altorouter": "*",
 		"league/html-to-markdown": "*",
