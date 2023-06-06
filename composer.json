@@ -87,7 +87,7 @@
 		"roave/better-reflection": "*",
 		"appstract/php-hostsfile": "*",
 		"joomla/keychain": "~2.0",
-		"landrok/activitypub": "*",
+		"rtio/activitypub-core": "*",
 		"delirehberi/webfinger": "*",
 		"relay/relay": "~2.0",
 		"workerman/phpsocket.io": "*",
