@@ -92,6 +92,19 @@
 		"relay/relay": "~2.0",
 		"workerman/phpsocket.io": "*",
 		"teqneers/shamir": "*",
-		"blake-gardner/mac-address": "*"
+		"blake-gardner/mac-address": "*",
+		
+		
+		"statical/statical" : "*",
+		 
+		"web-auth/webauthn-lib":"*",
+		"web-auth/cose-lib":"*",
+		"web-auth/metadata-service":"*",
+		"lbuchs/webauthn":"*",
+		"thecodingcompany/php-mastodon" : "*",
+		"laminas/laminas-json-server": "*",
+		"laminas/laminas-json" : "*",
+		"ocramius/proxy-manager" :"*",
+		"laminas/laminas-server":"*"
 	}
 }
