@@ -29,7 +29,7 @@
 		"nette/caching": "*",
 		"nette/robot-loader": "*",
 		"nette/reflection": "*",
-		"nette/php-generator": ">=4.0.6",
+		"nette/php-generator": "*",
 		"spatie/temporary-directory": "*",
 		"nikic/php-parser": "*",
 		"hellogerard/jobby": "*",
