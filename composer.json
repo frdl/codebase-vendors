@@ -9,7 +9,7 @@
 	}],
         "type": "metapackage",
 	"require": {
-		"php": ">=8.0",
+		"php": ">=7.0 | >=8.0",
 		"frdl/webfan": "*",
 		"composer/composer": "*",
 		"friendsofphp/proxy-manager-lts": "*",
@@ -22,7 +22,7 @@
 		"frdl/php-floodprotection": "*",
 		"frdl/remote-psr4": "*",
 		"frdl/event-module": "*",
-		"webfan3/php-easy-breaker": ">=0.3.6",
+		"webfan3/php-easy-breaker": "*",
 		
 		"ninsuo/php-shared-memory": "*",
 		"nette/utils": "*",
